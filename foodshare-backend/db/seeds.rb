@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Visit.create(date: "2020-07-01", food_pantry: "His Church Anglican")
-Visit.create(date: "2020-07-02", food_pantry: "12th Street Food Pantry")
+Visit.create(date: "2020-07-02", food_pantry: "12th Street Food Pantry", completed: true)
 Visit.create(date: "2020-07-03", food_pantry: "His Church Anglican")
-Visit.create(date: "2020-07-04", food_pantry: "12th Street Food Pantry")
+Visit.create(date: "2020-07-04", food_pantry: "12th Street Food Pantry"), completed: true
 Visit.create(date: "2020-07-05", food_pantry: "His Church Anglican")
 Visit.create(date: "2020-07-06", food_pantry: "12th Street Food Pantry")
 
