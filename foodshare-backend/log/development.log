@@ -127,3 +127,9 @@ FOREIGN KEY ("visit_id")
   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ? LIMIT ?[0m  [["visit_id", 6], ["LIMIT", 11]]
   [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ? ORDER BY "items"."id" DESC LIMIT ?[0m  [["visit_id", 6], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
