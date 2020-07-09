@@ -1,0 +1,129 @@
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisits (20200709110918)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "visits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "completed" boolean, "food_pantry" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200709110918"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateItems (20200709111047)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "quantity" integer, "visit_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b086c93c6f"
+FOREIGN KEY ("visit_id")
+  REFERENCES "visits" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_items_on_visit_id" ON "items" ("visit_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200709111047"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-09 11:19:09.748547"], ["updated_at", "2020-07-09 11:19:09.748547"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (2.2ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-01"], ["food_pantry", "His Church Anglican"], ["created_at", "2020-07-09 11:28:32.282339"], ["updated_at", "2020-07-09 11:28:32.282339"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-02"], ["food_pantry", "12th Street Food Pantry"], ["created_at", "2020-07-09 11:28:32.299103"], ["updated_at", "2020-07-09 11:28:32.299103"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-03"], ["food_pantry", "His Church Anglican"], ["created_at", "2020-07-09 11:28:32.311762"], ["updated_at", "2020-07-09 11:28:32.311762"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-04"], ["food_pantry", "12th Street Food Pantry"], ["created_at", "2020-07-09 11:28:32.319157"], ["updated_at", "2020-07-09 11:28:32.319157"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-05"], ["food_pantry", "His Church Anglican"], ["created_at", "2020-07-09 11:28:32.325631"], ["updated_at", "2020-07-09 11:28:32.325631"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("date", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["date", "2020-07-06"], ["food_pantry", "12th Street Food Pantry"], ["created_at", "2020-07-09 11:28:32.332330"], ["updated_at", "2020-07-09 11:28:32.332330"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Create (1.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bar Soap"], ["quantity", 2], ["visit_id", 1], ["created_at", "2020-07-09 11:28:32.394813"], ["updated_at", "2020-07-09 11:28:32.394813"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cereal"], ["quantity", 1], ["visit_id", 1], ["created_at", "2020-07-09 11:28:32.404055"], ["updated_at", "2020-07-09 11:28:32.404055"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Tomato Soup"], ["quantity", 4], ["visit_id", 1], ["created_at", "2020-07-09 11:28:32.411275"], ["updated_at", "2020-07-09 11:28:32.411275"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Diapers"], ["quantity", 1], ["visit_id", 2], ["created_at", "2020-07-09 11:28:32.419309"], ["updated_at", "2020-07-09 11:28:32.419309"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Canned Black Beans"], ["quantity", 2], ["visit_id", 2], ["created_at", "2020-07-09 11:28:32.426960"], ["updated_at", "2020-07-09 11:28:32.426960"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cookies"], ["quantity", 4], ["visit_id", 2], ["created_at", "2020-07-09 11:28:32.434038"], ["updated_at", "2020-07-09 11:28:32.434038"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dish Soap"], ["quantity", 4], ["visit_id", 3], ["created_at", "2020-07-09 11:28:32.441143"], ["updated_at", "2020-07-09 11:28:32.441143"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Nutrigrain Bars"], ["quantity", 2], ["visit_id", 3], ["created_at", "2020-07-09 11:28:32.448649"], ["updated_at", "2020-07-09 11:28:32.448649"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Canned Peaches"], ["quantity", 1], ["visit_id", 3], ["created_at", "2020-07-09 11:28:32.455721"], ["updated_at", "2020-07-09 11:28:32.455721"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Canned Green Beans"], ["quantity", 4], ["visit_id", 4], ["created_at", "2020-07-09 11:28:32.463858"], ["updated_at", "2020-07-09 11:28:32.463858"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Candy"], ["quantity", 2], ["visit_id", 4], ["created_at", "2020-07-09 11:28:32.473934"], ["updated_at", "2020-07-09 11:28:32.473934"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Chicken Noodle Soup"], ["quantity", 4], ["visit_id", 4], ["created_at", "2020-07-09 11:28:32.482072"], ["updated_at", "2020-07-09 11:28:32.482072"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hand Soap"], ["quantity", 2], ["visit_id", 5], ["created_at", "2020-07-09 11:28:32.490948"], ["updated_at", "2020-07-09 11:28:32.490948"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cereal"], ["quantity", 1], ["visit_id", 5], ["created_at", "2020-07-09 11:28:32.499080"], ["updated_at", "2020-07-09 11:28:32.499080"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Canned Black Beans"], ["quantity", 4], ["visit_id", 5], ["created_at", "2020-07-09 11:28:32.508493"], ["updated_at", "2020-07-09 11:28:32.508493"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Canned Tuna"], ["quantity", 2], ["visit_id", 6], ["created_at", "2020-07-09 11:28:32.516695"], ["updated_at", "2020-07-09 11:28:32.516695"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bar Soap"], ["quantity", 4], ["visit_id", 6], ["created_at", "2020-07-09 11:28:32.527247"], ["updated_at", "2020-07-09 11:28:32.527247"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "quantity", "visit_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cookies"], ["quantity", 1], ["visit_id", 6], ["created_at", "2020-07-09 11:28:32.536276"], ["updated_at", "2020-07-09 11:28:32.536276"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ? LIMIT ?[0m  [["visit_id", 6], ["LIMIT", 11]]
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ? ORDER BY "items"."id" DESC LIMIT ?[0m  [["visit_id", 6], ["LIMIT", 1]]
