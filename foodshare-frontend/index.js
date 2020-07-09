@@ -19,7 +19,7 @@ function getVisits(){
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             </li>
         `).join("")
-        attach
+        clickableLinks()
     })
 }
 
@@ -28,13 +28,13 @@ function clearForm(){
     createVisit.innerHTML = ""
 }
 
-function attachClickToLinks(){
+function clickableLinks(){
     let visits = document.querySelectorAll('li a')
     visits.forEach(visit =>{
         visit.addEventListener('click', displayVisit)
     })
     document.getElementById('visitForm').addEventListener('click', createVisitForm)
-    document.getElementById('visits').addEventListener('click', displayVisits)      //define these functions
+    document.getElementById('visits').addEventListener('click', displayVisit)      //define these functions
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
 
@@ -43,6 +43,10 @@ function displayVisit(){        //show page
 
 }
 
-function createVisitForm(){        //show page
+function createVisitForm(){        //create page
+
+}
+
+function displayItems(){        //create page
 
 }
