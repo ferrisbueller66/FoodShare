@@ -4,7 +4,7 @@ class CreateVisits < ActiveRecord::Migration[6.0]
       t.date :date
       t.boolean :completed
       t.string :food_pantry
-
+      
       t.timestamps
     end
   end
