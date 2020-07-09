@@ -46,10 +46,41 @@ function displayVisit(){        //show page
 
 function createVisitForm(){        //create page
     let createVisitForm = document.getElementById('createVisit')
-
+    let html = `
+    //<form action="/action_page.php">
+    <label for="name">Name of Food Pantry:</label><br><br>
+    <input type="text" id="food_pantry_name" name="food_pantry" value="Type Food Pantry Here"><br><br>
+    <label for="date">Date:</label><br><br>
+    <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
     
+    <label for="completed">Is Visit Completed?</label>
+    <input type="checkbox" id="completed" name="completed" ><br><br>
+    <input type="submit" value="Submit">
+</form> 
+    `
+    createVisitForm.innerHTML += html
+    document.querySelector("form").addEventListener('submit', createVisit)
 }
 
 function displayItems(){        //create page
 
+}
+
+function createVisit(){
+    event.preventDefault()
+    const visit = {
+        food_pantry: document.getElementById('food_pantry_name').value
+        date: document.getElementById('date').value,
+        completed: document.getElementById('completed').checked
+    }
+    fetch(BASE_URL+"/visits" {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(visit)
+        .then(response => response.json)
+        .then()
+});
 }
