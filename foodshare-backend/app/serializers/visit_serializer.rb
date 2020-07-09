@@ -1,3 +1,4 @@
 class VisitSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :date, :food_pantry, :completed
+  has_many :items
 end
