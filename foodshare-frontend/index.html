@@ -15,10 +15,11 @@
 <body>
     <script src="index.js"></script>
     <h1>Plan Your Next Visit</h1>
-    <a id="create-visit" href="#">Create Visit</a>
+    
     
     <p> Enter the next Food Pantry you plan to donate</p>
     <p> Enter the date of your next trip</p>
+    <a id="createVisit" href="#">Create Visit</a>
     <a id="visits" href="#">Visits</a>
     <a id="items" href="#">Items</a>
     <h2> Here's a List of your Visits</h2>
@@ -28,5 +29,16 @@
 
         </ul>
     </div>
+    <br>
+    <form action="/action_page.php">
+        <label for="name">Name of Food Pantry:</label><br>
+        <input type="text" id="food_pantry_name" name="food_pantry" value="Type Food Pantry Here"><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
+        
+        <label for="completed">Is Visit Completed?</label><br>
+        <input type="checkbox" id="completed" name="completed" ><br>
+        <input type="submit" value="Submit">
+  </form> 
 </body>
 </html>

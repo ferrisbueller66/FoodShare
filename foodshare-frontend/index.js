@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 
 
 function getVisits(){
-    clearForm()
+    //clearForm()
     let main = document.querySelector('#main')
     main.innerHTML = ""
 
@@ -33,8 +33,8 @@ function clickableLinks(){
     visits.forEach(visit =>{
         visit.addEventListener('click', displayVisit)
     })
-    document.getElementById('visitForm').addEventListener('click', createVisitForm)
-    document.getElementById('visits').addEventListener('click', displayVisit)      //define these functions
+    document.getElementById('createVisit').addEventListener('click', createVisitForm)
+    document.getElementById('visits').addEventListener('click', getVisits)      //define these functions
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
 
@@ -43,8 +43,11 @@ function displayVisit(){        //show page
 
 }
 
-function createVisitForm(){        //create page
 
+function createVisitForm(){        //create page
+    let createVisitForm = document.getElementById('createVisit')
+
+    
 }
 
 function displayItems(){        //create page
