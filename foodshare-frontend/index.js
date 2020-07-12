@@ -30,7 +30,7 @@ function clickableLinks(){
     visits.forEach(visit =>{
         visit.addEventListener('click', displayVisit)
     })
-    //document.getElementById('createVisit').addEventListener('click', createVisitForm)
+    document.getElementById('createVisit').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', getVisits)      //define these functions
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
@@ -42,7 +42,7 @@ function displayVisit(){        //show page
 
 
 function createVisitForm(){        
-    let createVisitForm = document.getElementById('createVisitForm')
+    let createVisitForm = document.getElementById('createVisit')
     let html = `
       
             <form action="/action_page.php">
@@ -58,32 +58,42 @@ function createVisitForm(){
         
     `
     createVisitForm.innerHTML += html
-    //document.querySelector("form").addEventListener('submit', createVisit)
+    document.querySelector("createVisitForm").addEventListener('submit', createVisit)
 }
 
 
-function createVisit(){                 //create page
-//     event.preventDefault()
-//     const visit = {
-//         food_pantry: document.getElementById('food_pantry_name').value
-//         date: document.getElementById('date').value,
-//         completed: document.getElementById('completed').checked
-//     }
-//     fetch(BASE_URL+"/visits" {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body: JSON.stringify(visit)
-//         .then(response => response.json)
-//         .then()
-// });
+function createVisit(){                 //create Visit Action
+    // event.preventDefault()
+    // const visit = {
+    //     food_pantry: document.getElementById('food-pantry-name').value
+    //     date: document.getElementById('date').value,
+    //     completed: document.getElementById('completed').checked
+    // }
+
+    // fetch(BASE_URL+"/visits" {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify(visit)
+    //     .then(response => response.json)
+    //     .then(visit => {
+    //         let main = document.querySelector("main") 
+    //             main.innerHTML += `
+    //         <li>
+    //         ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+    //             - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+    //         </li>
+    //         `
+    //     clearForm()
+    //     })
+    // });
 }
 
 function clearForm(){
-    let createVisit = document.getElementById('createVisit')
-    createVisit.innerHTML = ""
+    let createVisitForm = document.getElementById('createVisitForm')
+    createVisitForm.innerHTML = ""
 }
 
 
