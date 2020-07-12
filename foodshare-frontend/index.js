@@ -2,6 +2,7 @@ const BASE_URL = 'http://localhost:3000'
 
 window.addEventListener('load', () => {
     getVisits()
+    createVisitForm()
 })
 
 
@@ -15,7 +16,7 @@ function getVisits(){
 	.then(visits => {
         main.innerHTML += visits.map(visit => `
             <li>
-            ${visit.date}: <a href="#" data-id="${visit.id}">${visit.food_pantry}</a> 
+            ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             </li>
         `).join("")
@@ -23,10 +24,6 @@ function getVisits(){
     })
 }
 
-function clearForm(){
-    let createVisit = document.getElementById('createVisit')
-    createVisit.innerHTML = ""
-}
 
 function clickableLinks(){
     let visits = document.querySelectorAll('li a')
@@ -44,12 +41,12 @@ function displayVisit(){        //show page
 }
 
 
-function createVisitForm(){        //create page
+function createVisitForm(){        
     let createVisitForm = document.getElementById('createVisit')
     let html = `
-    //<form action="/action_page.php">
+    <form action="/action_page.php">
     <label for="name">Name of Food Pantry:</label><br><br>
-    <input type="text" id="food_pantry_name" name="food_pantry" value="Type Food Pantry Here"><br><br>
+    <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
     <label for="date">Date:</label><br><br>
     <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
     
@@ -62,25 +59,32 @@ function createVisitForm(){        //create page
     document.querySelector("form").addEventListener('submit', createVisit)
 }
 
-function displayItems(){        //create page
 
+function createVisit(){                 //create page
+//     event.preventDefault()
+//     const visit = {
+//         food_pantry: document.getElementById('food_pantry_name').value
+//         date: document.getElementById('date').value,
+//         completed: document.getElementById('completed').checked
+//     }
+//     fetch(BASE_URL+"/visits" {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify(visit)
+//         .then(response => response.json)
+//         .then()
+// });
 }
 
-function createVisit(){
-    event.preventDefault()
-    const visit = {
-        food_pantry: document.getElementById('food_pantry_name').value
-        date: document.getElementById('date').value,
-        completed: document.getElementById('completed').checked
-    }
-    fetch(BASE_URL+"/visits" {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(visit)
-        .then(response => response.json)
-        .then()
-});
+function clearForm(){
+    let createVisit = document.getElementById('createVisit')
+    createVisit.innerHTML = ""
+}
+
+
+function displayItems(){        //items index page
+
 }
