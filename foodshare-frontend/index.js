@@ -42,10 +42,10 @@ function displayVisit(){        //show page
 
 
 function createVisitForm(){        
-    let createVisitForm = document.getElementById('createVisit')
+    let createVisitForm = document.getElementById('createVisitForm')
     let html = `
       
-            <form id=createVisitForm action="/action_page.php">
+            <form action="/action_page.php">
                 <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
                 <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
                 <label for="date">Enter the date of your next trip:</label><br><br>
