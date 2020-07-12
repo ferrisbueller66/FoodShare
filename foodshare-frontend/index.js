@@ -2,7 +2,6 @@ const BASE_URL = 'http://localhost:3000'
 
 window.addEventListener('load', () => {
     getVisits()
-    createVisitForm()
 })
 
 
@@ -44,21 +43,21 @@ function displayVisit(){        //show page
 function createVisitForm(){        
     let createVisitForm = document.getElementById('createVisit')
     let html = `
-      
+    
             <form action="/action_page.php">
                 <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
                 <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
                 <label for="date">Enter the date of your next trip:</label><br><br>
-                <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
+                <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US')" min="2015-01-01" max="2118-12-31"><br><br>
                 
                 <label for="completed">Is Visit Completed?</label>
                 <input type="checkbox" id="completed" name="completed" ><br><br>
                 <input type="submit" value="Submit">
             </form> 
-        
+       
     `
     createVisitForm.innerHTML += html
-    document.querySelector("createVisitForm").addEventListener('submit', createVisit)
+    document.querySelector("createVisit").addEventListener('submit', createVisit)
 }
 
 
