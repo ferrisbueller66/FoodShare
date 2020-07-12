@@ -73,16 +73,15 @@ function createVisit(){                 //create Visit Action
         },
         body: JSON.stringify(visit)
     })
-        .then(response => response.json)
+        .then(response => response.json())
         .then(visit => {
-            let main = document.querySelector("main") 
-                main += `
+            document.querySelector("#main").innerHTML += `
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             </li>
             `
-        clearForm()
+            clearForm()
         })
 }
 
