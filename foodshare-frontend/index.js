@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
     getVisits()
 })
 
-
 function getVisits(){
     //clearForm()
     let main = document.querySelector('#main')
@@ -23,7 +22,6 @@ function getVisits(){
     })
 }
 
-
 function clickableLinks(){
     let visits = document.querySelectorAll('li a')
     visits.forEach(visit =>{
@@ -34,32 +32,29 @@ function clickableLinks(){
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
 
-
 function displayVisit(){        //visit show page
 
 }
 
-
 function createVisitForm(){        
-    let createVisitForm = document.getElementById('createVisit')
+    let createVisitForm = document.getElementById('createVisitForm')
     let html = `
-    
-            <form action="/action_page.php">
+            <form>
                 <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
                 <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+
                 <label for="date">Enter the date of your next trip:</label><br><br>
                 <input type="date" id="date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
                 
                 <label for="completed">Is Visit Completed?</label>
                 <input type="checkbox" id="completed" name="completed" ><br><br>
+
                 <input type="submit" value="Submit">
             </form> 
-       
     `
     createVisitForm.innerHTML += html
-    document.querySelector("createVisit").addEventListener('submit', createVisit)
+    document.querySelector("form").addEventListener('submit', createVisit)
 }
-
 
 function createVisit(){                 //create Visit Action
     // event.preventDefault()
@@ -94,7 +89,6 @@ function clearForm(){
     let createVisitForm = document.getElementById('createVisitForm')
     createVisitForm.innerHTML = ""
 }
-
 
 function displayItems(){        //items index page
 
