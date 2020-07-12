@@ -85,14 +85,9 @@ function createVisit(){                 //create Visit Action
         })
 }
 
-
-
-
-
-
 function clearForm(){
     let createVisitForm = document.getElementById('createVisitForm')
-    createVisitForm = ""
+    createVisitForm.innerHTML = ""
 }
 
 function displayItems(){        //items index page
