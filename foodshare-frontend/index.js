@@ -30,7 +30,7 @@ function clickableLinks(){
     visits.forEach(visit =>{
         visit.addEventListener('click', displayVisit)
     })
-    document.getElementById('createVisit').addEventListener('click', createVisitForm)
+    //document.getElementById('createVisit').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', getVisits)      //define these functions
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
@@ -44,19 +44,21 @@ function displayVisit(){        //show page
 function createVisitForm(){        
     let createVisitForm = document.getElementById('createVisit')
     let html = `
-    <form action="/action_page.php">
-    <label for="name">Name of Food Pantry:</label><br><br>
-    <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
-    <label for="date">Date:</label><br><br>
-    <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
-    
-    <label for="completed">Is Visit Completed?</label>
-    <input type="checkbox" id="completed" name="completed" ><br><br>
-    <input type="submit" value="Submit">
-</form> 
+      
+            <form action="/action_page.php">
+                <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
+                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+                <label for="date">Enter the date of your next trip:</label><br><br>
+                <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US') " min="2015-01-01" max="2118-12-31"><br><br>
+                
+                <label for="completed">Is Visit Completed?</label>
+                <input type="checkbox" id="completed" name="completed" ><br><br>
+                <input type="submit" value="Submit">
+            </form> 
+        
     `
     createVisitForm.innerHTML += html
-    document.querySelector("form").addEventListener('submit', createVisit)
+    //document.querySelector("form").addEventListener('submit', createVisit)
 }
 
 

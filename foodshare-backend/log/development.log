@@ -1012,3 +1012,83 @@ Processing by VisitsController#index as */*
 Completed 200 OK in 170ms (Views: 157.7ms | ActiveRecord: 11.8ms | Allocations: 12325)
 
 
+Started GET "/visits" for ::1 at 2020-07-12 13:32:20 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (137.54ms)
+Completed 200 OK in 141ms (Views: 139.2ms | ActiveRecord: 1.9ms | Allocations: 12325)
+
+
+Started GET "/visits" for ::1 at 2020-07-12 13:32:55 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (21.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (12.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (166.33ms)
+Completed 200 OK in 170ms (Views: 134.5ms | ActiveRecord: 35.6ms | Allocations: 12327)
+
+
+Started GET "/visits" for ::1 at 2020-07-12 13:35:54 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (1.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (2.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (58.95ms)
+Completed 200 OK in 66ms (Views: 60.3ms | ActiveRecord: 5.4ms | Allocations: 12325)
+
+
+Started GET "/visits" for ::1 at 2020-07-12 13:36:51 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (12.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (120.74ms)
+Completed 200 OK in 131ms (Views: 114.5ms | ActiveRecord: 15.7ms | Allocations: 12326)
+
+
