@@ -35,7 +35,7 @@ function clickableLinks(){
 }
 
 
-function displayVisit(){        //show page
+function displayVisit(){        //visit show page
 
 }
 
@@ -48,7 +48,7 @@ function createVisitForm(){
                 <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
                 <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
                 <label for="date">Enter the date of your next trip:</label><br><br>
-                <input type="date" id="date" name="date" value="myDate.toLocaleDateString('en-US')" min="2015-01-01" max="2118-12-31"><br><br>
+                <input type="date" id="date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
                 
                 <label for="completed">Is Visit Completed?</label>
                 <input type="checkbox" id="completed" name="completed" ><br><br>
