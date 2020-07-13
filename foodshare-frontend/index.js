@@ -17,7 +17,7 @@ function getVisits(){
         main.innerHTML += visits.map(visit => `
      
             <li>
-            ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+            ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
                 <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
                 <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
@@ -28,7 +28,7 @@ function getVisits(){
 }
 
 function clickableLinks(){
-    let visits = document.querySelectorAll('li a')
+    let visits = document.querySelectorAll('.visit-li')
     visits.forEach(visit =>{
         visit.addEventListener('click', displayVisit)
     })
@@ -137,7 +137,7 @@ function editVisit(){        //visit edit action
     //     completed: document.getElementById('food-pantry-completed').checked
     // }
 
-    // fetch(BASE_URL+`/visits/${event.target.dataset.edit-id}`, {
+    // fetch(BASE_URL+`/visits/${event.target.dataset.editId}`, {
     //     method: "PATCH",
     //     headers: {
     //         "Content-Type": "application/json",
@@ -160,7 +160,8 @@ function editVisit(){        //visit edit action
 
 function deleteVisit(){        //visit delete action
     event.preventDefault();
-
+    event.preventDefault
+    clearForm()
     fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
         method: "DELETE",
         headers: {
