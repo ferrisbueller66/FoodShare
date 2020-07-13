@@ -79,7 +79,8 @@ function createVisit(){                 //create Visit Action
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             </li>
             `
-            //do I need addEvent Listener?
+            clickableLinks()
+            //why do I need to add back in the eventListeners?
             clearForm()
         })
 }
@@ -106,8 +107,6 @@ function displayVisit(){        //visit show page
     `
     })
 }
-//2. fetch
-//3.  re-render page
 
 function displayItems(){        //items index page
 
