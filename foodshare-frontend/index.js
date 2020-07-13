@@ -33,10 +33,6 @@ function clickableLinks(){
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
 }
 
-function displayVisit(){        //visit show page
-
-}
-
 function createVisitForm(){        
     let createVisitForm = document.getElementById('createVisitForm')
     let html = `
@@ -81,6 +77,7 @@ function createVisit(){                 //create Visit Action
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             </li>
             `
+            //do I need addEvent Listener?
             clearForm()
         })
 }
@@ -89,6 +86,26 @@ function clearForm(){
     let createVisitForm = document.getElementById('createVisitForm')
     createVisitForm.innerHTML = ""
 }
+
+function displayVisit(){        //visit show page
+    console.log(event.target.dataset.visitId)
+    let id = event.target.dataset.visitId
+    let main = document.querySelector('#main')
+
+    fetch(BASE_URL+`/visits/${id}`)
+	.then(response => response.json())
+	.then(visit => {
+        visit
+
+        main.innerHTML = `
+    <h2>${visit.food_pantry}</h2>
+    <h3>Date Visited: ${visit.date}</h3>
+    <h3>Food Delivered? ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+    `
+    })
+}
+//2. fetch
+//3.  re-render page
 
 function displayItems(){        //items index page
 
