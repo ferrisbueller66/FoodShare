@@ -19,8 +19,8 @@ function getVisits(){
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                <a href="#" class='edit-link' data-edit-id="${visit.id}">  Edit</a> 
-                <a href="#" class='delete-link' data-delete-id="${visit.id}">  Delete</a> 
+                <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
             </li>
         `).join("")
         clickableLinks()
@@ -36,14 +36,14 @@ function clickableLinks(){
     document.getElementById('visits').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
     
-    let edits = document.getElementsByClassName('edit-link')
+    let edits = document.getElementsByClassName('edit-visit-link')
     for (const element of edits) {
-        element.addEventListener('click', editVisit)
+        element.addEventListener('click', editVisit)                            //define this functions
     }
       
-    let deletes = document.getElementsByClassName('delete-link')
+    let deletes = document.getElementsByClassName('delete-visit-link')
     for (const element of deletes) {
-        element.addEventListener('click', deleteVisit)
+        element.addEventListener('click', deleteVisit)                           //define this functions
     }
     
 }
@@ -96,6 +96,8 @@ function createVisit(){                 //create Visit Action
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
             </li>
             `
             clickableLinks()
@@ -128,11 +130,45 @@ function displayVisit(){        //visit show page
 }
 
 function editVisit(){        //visit edit action
-    console.log("edit works")
+    event.preventDefault();
+    // const visit = {
+    //     food_pantry: document.getElementById('food-pantry-name').value,
+    //     date: document.getElementById('food-pantry-date').value,
+    //     completed: document.getElementById('food-pantry-completed').checked
+    // }
+
+    // fetch(BASE_URL+`/visits/${event.target.dataset.edit-id}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify(visit)
+    // })
+    //     .then(response => response.json())
+    //     .then(visit => {
+    //         document.querySelector("#main").innerHTML += `
+    //         <li>
+    //         ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+    //             - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+    //         </li>
+    //         `
+    //         clickableLinks()
+    //         //why do I need to add back in the eventListeners?
+    //         clearForm()
 }
 
 function deleteVisit(){        //visit delete action
-    console.log("delete works")
+    event.preventDefault();
+
+    fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+        .then(event.target.parentElement.remove())
 }
 
 
