@@ -12,8 +12,10 @@ function getVisits(){
 
     fetch(BASE_URL+"/visits")
 	.then(response => response.json())
-	.then(visits => {
+    .then(main.innerHTML += `<h2> Here's a List of your Visits</h2>`)
+    .then(visits => {
         main.innerHTML += visits.map(visit => `
+     
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
@@ -98,7 +100,7 @@ function displayVisit(){        //visit show page
         visit
 
         main.innerHTML = `
-    <h2>${visit.food_pantry}</h2>
+    <h2>Visit Location: ${visit.food_pantry}</h2>
     <h3>Date Visited: ${visit.date}</h3>
     <h3>Food Delivered? ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
     `
