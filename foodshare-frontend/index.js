@@ -19,6 +19,8 @@ function getVisits(){
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                <a href="#" class='edit-link' data-edit-id="${visit.id}">  Edit</a> 
+                <a href="#" class='delete-link' data-delete-id="${visit.id}">  Delete</a> 
             </li>
         `).join("")
         clickableLinks()
@@ -31,8 +33,19 @@ function clickableLinks(){
         visit.addEventListener('click', displayVisit)
     })
     document.getElementById('newVisit').addEventListener('click', createVisitForm)
-    document.getElementById('visits').addEventListener('click', getVisits)      //define these functions
+    document.getElementById('visits').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)        //define these functions
+    
+    let edits = document.getElementsByClassName('edit-link')
+    for (const element of edits) {
+        element.addEventListener('click', editVisit)
+    }
+      
+    let deletes = document.getElementsByClassName('delete-link')
+    for (const element of deletes) {
+        element.addEventListener('click', deleteVisit)
+    }
+    
 }
 
 function createVisitForm(){        
@@ -113,6 +126,15 @@ function displayVisit(){        //visit show page
     `
     })
 }
+
+function editVisit(){        //visit edit action
+    console.log("edit works")
+}
+
+function deleteVisit(){        //visit delete action
+    console.log("delete works")
+}
+
 
 function displayItems(){        //items index page
 
