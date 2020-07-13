@@ -52,7 +52,13 @@ function createVisitForm(){
             </form> 
     `
     createVisitForm.innerHTML = html
-    document.querySelector("form").addEventListener('submit', createVisit)
+        let textField = document.getElementById('food-pantry-name')
+        textField.addEventListener('click', clearPlaceHolderOnClick)
+        document.querySelector("form").addEventListener('submit', createVisit)
+}
+
+function clearPlaceHolderOnClick(textField){
+    event.target.value = ""
 }
 
 function createVisit(){                 //create Visit Action
