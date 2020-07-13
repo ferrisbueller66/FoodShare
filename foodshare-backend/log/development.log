@@ -5078,3 +5078,34 @@ Completed 204 No Content in 18ms (ActiveRecord: 5.8ms | Allocations: 2460)
 
   [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/visits" for ::1 at 2020-07-13 16:11:11 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#create as JSON
+  Parameters: {"food_pantry"=>"test agency", "date"=>"2020-07-09", "completed"=>true, "visit"=>{"date"=>"2020-07-09", "completed"=>true, "food_pantry"=>"test agency"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/visits_controller.rb:20:in `create'
+  [1m[36mVisit Create (3.1ms)[0m  [1m[32mINSERT INTO "visits" ("date", "completed", "food_pantry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2020-07-09"], ["completed", 1], ["food_pantry", "test agency"], ["created_at", "2020-07-13 20:11:11.997060"], ["updated_at", "2020-07-13 20:11:11.997060"]]
+  ↳ app/controllers/visits_controller.rb:20:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/visits_controller.rb:20:in `create'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 34]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:21:in `create'
+[active_model_serializers] Rendered VisitSerializer with ActiveModelSerializers::Adapter::Attributes (19.47ms)
+Completed 201 Created in 85ms (Views: 52.4ms | ActiveRecord: 6.0ms | Allocations: 13509)
+
+
+Started DELETE "/visits/34" for ::1 at 2020-07-13 16:11:14 -0400
+Processing by VisitsController#destroy as JSON
+  Parameters: {"id"=>"34", "visit"=>{}}
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:44:in `set_visit'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/visits_controller.rb:38:in `destroy'
+  [1m[36mVisit Destroy (1.0ms)[0m  [1m[31mDELETE FROM "visits" WHERE "visits"."id" = ?[0m  [["id", 34]]
+  ↳ app/controllers/visits_controller.rb:38:in `destroy'
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/visits_controller.rb:38:in `destroy'
+Completed 204 No Content in 13ms (ActiveRecord: 4.2ms | Allocations: 2596)
+
+
