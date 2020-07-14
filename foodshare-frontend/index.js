@@ -170,11 +170,8 @@ function editVisit(){        //visit edit action
 function updateVisit(){
     event.preventDefault();
     let id = event.target.dataset.id
-    const visit = {
-        food_pantry: document.getElementById('food-pantry-name').value,
-        date: document.getElementById('food-pantry-date').value,
-        completed: document.getElementById('food-pantry-completed').checked
-    }
+    let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
+
 
     fetch(BASE_URL+`/visits/${id}`, {
         method: "PATCH",
