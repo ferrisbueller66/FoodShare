@@ -129,30 +129,6 @@ function displayVisit(){        //visit show page
     })
 }
 
-function editVisitForm(){        
-    // let createVisitForm = document.getElementById('createVisitForm')
-
-    // let html = `
-    //         <form>
-    //             <label for="name">Edit the Organization Below:</label><br><br>
-    //             <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
-
-    //             <label for="date">Edit the date of your next trip:</label><br><br>
-    //             <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
-                
-    //             <label for="completed">Is Visit Completed?</label>
-    //             <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
-
-    //             <input type="submit" value="Submit">
-    //         </form> 
-    // `
-    // createVisitForm.innerHTML = html
-        // let textField = document.getElementById('food-pantry-name')
-        // textField.addEventListener('click', clearPlaceHolderOnClick)
-        // document.querySelector("form").addEventListener('submit', editVisit)
-}
-
-
 function editVisit(){        //visit edit action
     event.preventDefault();
     let id = event.target.dataset.editId
@@ -169,15 +145,15 @@ function editVisit(){        //visit edit action
             let createVisitForm = document.getElementById('createVisitForm')
 
             let html = `
-                <form>
+                <form data-id=${id}>
                     <label for="name">Edit the Organization ${visit.food_pantry} Below:</label><br><br>
                     <input type="text" id="food-pantry-name" name="food-pantry" value="${visit.food_pantry}"><br><br>
 
                     <label for="date">Edit the date of your next trip:</label><br><br>
-                    <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
+                    <input type="date" id="food-pantry-date" name="date" value="${visit.date}" min="2015-01-01" max="2118-12-31"><br><br>
                     
                     <label for="completed">Is Visit Completed?</label>
-                    <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
+                    <input type="checkbox" id="food-pantry-completed" name="completed" ${visit.completed ? "checked" : ""}><br><br>
 
                     <input type="submit" value="Submit">
                 </form> 
@@ -185,11 +161,27 @@ function editVisit(){        //visit edit action
             createVisitForm.innerHTML = html
                 let textField = document.getElementById('food-pantry-name')
                 textField.addEventListener('click', clearPlaceHolderOnClick)
-                document.querySelector("form").addEventListener('submit', editVisit)
-
+                document.querySelector("form").addEventListener('submit', updateVisit)
         })
+}
 
-        // body: JSON.stringify(visit)
+function updateVisit(){
+    event.preventDefault();
+
+    const visit = {
+        food_pantry: document.getElementById('food-pantry-name').value,
+        date: document.getElementById('food-pantry-date').value,
+        completed: document.getElementById('food-pantry-completed').checked
+    }
+    
+    fetch(BASE_URL+`/visits/${event.target.dataset.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(visit)
+    })
             // .then(response => response.json())
             // .then(visit => {
     //         document.querySelector("#main").innerHTML += `
@@ -207,6 +199,7 @@ function editVisit(){        //visit edit action
     //     date: document.getElementById('food-pantry-date').value,
     //     completed: document.getElementById('food-pantry-completed').checked
     // }
+
 }
 
 function deleteVisit(){        //visit delete action
