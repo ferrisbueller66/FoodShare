@@ -38,7 +38,7 @@ function clickableLinks(){
     
     let edits = document.getElementsByClassName('edit-visit-link')
     for (const element of edits) {
-        element.addEventListener('click', editVisitForm)                            //define this functions
+        element.addEventListener('click', editVisit)                            //define this functions
     }
       
     let deletes = document.getElementsByClassName('delete-visit-link')
@@ -130,22 +130,23 @@ function displayVisit(){        //visit show page
 }
 
 function editVisitForm(){        
-    let createVisitForm = document.getElementById('createVisitForm')
-    let html = `
-            <form>
-                <label for="name">Edit the Organization Below:</label><br><br>
-                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+    // let createVisitForm = document.getElementById('createVisitForm')
 
-                <label for="date">Edit the date of your next trip:</label><br><br>
-                <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
+    // let html = `
+    //         <form>
+    //             <label for="name">Edit the Organization Below:</label><br><br>
+    //             <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+
+    //             <label for="date">Edit the date of your next trip:</label><br><br>
+    //             <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
                 
-                <label for="completed">Is Visit Completed?</label>
-                <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
+    //             <label for="completed">Is Visit Completed?</label>
+    //             <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
 
-                <input type="submit" value="Submit">
-            </form> 
-    `
-    createVisitForm.innerHTML = html
+    //             <input type="submit" value="Submit">
+    //         </form> 
+    // `
+    // createVisitForm.innerHTML = html
         // let textField = document.getElementById('food-pantry-name')
         // textField.addEventListener('click', clearPlaceHolderOnClick)
         // document.querySelector("form").addEventListener('submit', editVisit)
@@ -154,23 +155,43 @@ function editVisitForm(){
 
 function editVisit(){        //visit edit action
     event.preventDefault();
-    createVisitForm()
-    // const visit = {
-    //     food_pantry: document.getElementById('food-pantry-name').value,
-    //     date: document.getElementById('food-pantry-date').value,
-    //     completed: document.getElementById('food-pantry-completed').checked
-    // }
+    let id = event.target.dataset.editId
+    fetch(BASE_URL+`/visits/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        
+    })
+        .then(response => response.json())
+        .then(visit => {
+            let createVisitForm = document.getElementById('createVisitForm')
 
-    // fetch(BASE_URL+`/visits/${event.target.dataset.editId}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //         "Accept": "application/json"
-    //     },
-    //     body: JSON.stringify(visit)
-    // })
-    //     .then(response => response.json())
-    //     .then(visit => {
+            let html = `
+                <form>
+                    <label for="name">Edit the Organization ${visit.food_pantry} Below:</label><br><br>
+                    <input type="text" id="food-pantry-name" name="food-pantry" value="${visit.food_pantry}"><br><br>
+
+                    <label for="date">Edit the date of your next trip:</label><br><br>
+                    <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
+                    
+                    <label for="completed">Is Visit Completed?</label>
+                    <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
+
+                    <input type="submit" value="Submit">
+                </form> 
+            `
+            createVisitForm.innerHTML = html
+                let textField = document.getElementById('food-pantry-name')
+                textField.addEventListener('click', clearPlaceHolderOnClick)
+                document.querySelector("form").addEventListener('submit', editVisit)
+
+        })
+
+        // body: JSON.stringify(visit)
+            // .then(response => response.json())
+            // .then(visit => {
     //         document.querySelector("#main").innerHTML += `
     //         <li>
     //         ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
@@ -179,7 +200,13 @@ function editVisit(){        //visit edit action
     //         `
     //         clickableLinks()
     //         //why do I need to add back in the eventListeners?
-    //         clearForm()
+    //         clearForm() 
+    
+    // const visit = {
+    //     food_pantry: document.getElementById('food-pantry-name').value,
+    //     date: document.getElementById('food-pantry-date').value,
+    //     completed: document.getElementById('food-pantry-completed').checked
+    // }
 }
 
 function deleteVisit(){        //visit delete action
