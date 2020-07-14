@@ -74,13 +74,15 @@ function clearPlaceHolderOnClick(textField){
     event.target.value = ""
 }
 
-function createVisit(){                 //create Visit Action
+function Visit(food_pantry, date, completed){
+    this.food_pantry = food_pantry
+    this.date = date
+    this.completed = completed
+}
+
+function createVisit(){                 //create Visit Action                           //write class function here?
     event.preventDefault();
-    const visit = {
-        food_pantry: document.getElementById('food-pantry-name').value,
-        date: document.getElementById('food-pantry-date').value,
-        completed: document.getElementById('food-pantry-completed').checked
-    }
+    let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
 
     fetch(BASE_URL+"/visits", {
         method: "POST",
@@ -167,14 +169,14 @@ function editVisit(){        //visit edit action
 
 function updateVisit(){
     event.preventDefault();
-
+    let id = event.target.dataset.id
     const visit = {
         food_pantry: document.getElementById('food-pantry-name').value,
         date: document.getElementById('food-pantry-date').value,
         completed: document.getElementById('food-pantry-completed').checked
     }
-    
-    fetch(BASE_URL+`/visits/${event.target.dataset.id}`, {
+
+    fetch(BASE_URL+`/visits/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -182,24 +184,23 @@ function updateVisit(){
         },
         body: JSON.stringify(visit)
     })
-            // .then(response => response.json())
-            // .then(visit => {
-    //         document.querySelector("#main").innerHTML += `
-    //         <li>
-    //         ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-    //             - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-    //         </li>
-    //         `
+    .then(response => response.json())
+    .then(visit => {
+        console.log(visit)
+    
+           document.querySelector("#main").parentElement.innerHTML
+           // `
+    //        <li>
+            // ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+            // - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+            // <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+            // <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+            //  </li>
+     //       `
     //         clickableLinks()
     //         //why do I need to add back in the eventListeners?
-    //         clearForm() 
-    
-    // const visit = {
-    //     food_pantry: document.getElementById('food-pantry-name').value,
-    //     date: document.getElementById('food-pantry-date').value,
-    //     completed: document.getElementById('food-pantry-completed').checked
-    // }
-
+    //         clearForm()
+    })
 }
 
 function deleteVisit(){        //visit delete action
