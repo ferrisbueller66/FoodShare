@@ -74,10 +74,12 @@ function clearPlaceHolderOnClick(textField){
     event.target.value = ""
 }
 
-function Visit(food_pantry, date, completed){
+class Visit{
+    constructor(food_pantry, date, completed){
     this.food_pantry = food_pantry
     this.date = date
     this.completed = completed
+    }
 }
 
 function createVisit(){                 //create Visit Action                           //write class function here?
