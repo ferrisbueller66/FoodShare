@@ -14,16 +14,19 @@ function getVisits(){
 	.then(response => response.json())
     .then(main.innerHTML += `<h2> Here's a List of your Visits</h2>`)
     .then(visits => {
-        main.innerHTML += visits.map(visit => `
-     
-            <li>
-            ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-                <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-            </li>
-        `).join("")
-        clickableLinks()
+        visits.forEach(visit => {
+            let li = `
+                    <li>
+                    ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+                        - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                        <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                        <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                        
+                    </li>
+                `
+                main.innerHTML += li
+                clickableLinks()
+        })
     })
 }
 
