@@ -186,12 +186,12 @@ function updateVisit(){
 
 function deleteVisit(){        //visit delete action
     event.preventDefault();
-    fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
-    })
-        .then(event.target.parentElement.remove())
+    let id = event.target.dataset.deleteId
+        fetch(BASE_URL+`/visits/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }).then(event.target.parentElement.remove())
 }
