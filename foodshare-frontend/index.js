@@ -29,7 +29,7 @@ function clickableLinks(){
     }
 
     let editItems = document.getElementsByClassName('edit-item-link')
-    for (const element of t) {
+    for (const element of editItems) {
         element.addEventListener('click', editItem)                            //define this functions
     }
       

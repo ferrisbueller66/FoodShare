@@ -84,7 +84,9 @@ function displayItems(){        //items index page
 //         })
 // }
 
-// // function editVisit(){        //visit edit action
+function editItem(){        //item edit action
+    event.preventDefault();
+    console.log("edit click works")
 // //     event.preventDefault();
 // //     let id = event.target.dataset.editId
 // //     fetch(BASE_URL+`/visits/${id}`, {
@@ -118,9 +120,9 @@ function displayItems(){        //items index page
 // //                 textField.addEventListener('click', clearPlaceHolderOnClick)
 // //                 document.querySelector("form").addEventListener('submit', updateVisit)
 // //         })
-// // }
+}
 
-// // function updateVisit(){
+// // function updateItem(){
 // //     event.preventDefault();
 // //     let id = event.target.dataset.id
 // //     let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
@@ -156,7 +158,7 @@ function displayItems(){        //items index page
 
 function deleteItem(){        //item delete action
     event.preventDefault();
-    fetch(BASE_URL+`/items/${event.target.dataset.deleteId}`, {
+    fetch(BASE_URL+`/items/${event.target.dataset.deleteItemId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -165,3 +167,4 @@ function deleteItem(){        //item delete action
     })
         .then(event.target.parentElement.remove())
 }
+
