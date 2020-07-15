@@ -20,7 +20,7 @@ function getVisits(){
                 <li id="visitLi-${visit.id}">               
                 
                 ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                    - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                     ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
                     <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
                     <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
                         <ol id="items-ol">
