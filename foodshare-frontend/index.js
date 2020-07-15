@@ -16,17 +16,23 @@ function getVisits(){
     .then(visits => {
         visits.forEach(visit => {
             let li = `
-                    <li>
-                    ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                        - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                        <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-                        <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                <li id="visitLi-${visit.id}">               
+                
+                ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+                    - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                    <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                    <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                        <ol id="items-ol">
                         
-                    </li>
-                `
-                main.innerHTML += li
-                clickableLinks()
+                        </ol>
+                </li>
+            `
+            main.innerHTML += li
+            let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
+            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})</li>`)
+            
         })
+        clickableLinks()
     })
 }
 
