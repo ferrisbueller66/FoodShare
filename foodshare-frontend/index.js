@@ -195,19 +195,19 @@ function updateVisit(){
     .then(response => response.json())
     .then(visit => {
         console.log(visit)
-    
-           document.querySelector("#main").parentElement.innerHTML
-           // `
-    //        <li>
-            // ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-            // - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-            // <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-            // <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-            //  </li>
-     //       `
-    //         clickableLinks()
-    //         //why do I need to add back in the eventListeners?
-    //         clearForm()
+            document.querySelector(`li#visitLi-${visit.id}`).innerHTML =
+           //document.querySelector("#main").parentElement.
+           `
+   
+            ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+            - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+            <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+
+           `
+            clickableLinks()
+            //why do I need to add back in the eventListeners?
+            clearForm()
     })
 }
 
