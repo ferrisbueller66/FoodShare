@@ -18,14 +18,24 @@ function clickableLinks(){
     visitLinks.forEach(link => link.addEventListener('click', showVisit))
      
     
-    let edits = document.getElementsByClassName('edit-visit-link')
-    for (const element of edits) {
-        element.addEventListener('click', editVisit)                            //define this functions
+    let editVisits = document.getElementsByClassName('edit-visit-link')
+    for (const element of editVisits) {
+        element.addEventListener('click', editVisit)                            
     }
       
-    let deletes = document.getElementsByClassName('delete-visit-link')
-    for (const element of deletes) {
-        element.addEventListener('click', deleteVisit)                           //define this functions
+    let deleteVisits = document.getElementsByClassName('delete-visit-link')
+    for (const element of deleteVisits) {
+        element.addEventListener('click', deleteVisit)                           
+    }
+
+    let editItems = document.getElementsByClassName('edit-item-link')
+    for (const element of t) {
+        element.addEventListener('click', editItem)                            //define this functions
+    }
+      
+    let deleteItems = document.getElementsByClassName('delete-item-link')
+    for (const element of deleteItems) {
+        element.addEventListener('click', deleteItem)                           //define this functions
     }
     
 }

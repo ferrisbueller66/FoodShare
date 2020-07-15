@@ -1,3 +1,11 @@
+class Visit{
+    constructor(food_pantry, date, completed){
+    this.food_pantry = food_pantry
+    this.date = date
+    this.completed = completed
+    }
+}
+
 function getVisits(){
     //clearForm()
     let main = document.querySelector('#main')
@@ -29,36 +37,6 @@ function getVisits(){
     })
 }
 
-function createVisitForm(){        
-    let createVisitForm = document.getElementById('createVisitForm')
-    let html = `
-            <form>
-                <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
-                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
-
-                <label for="date">Enter the date of your next trip:</label><br><br>
-                <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
-                
-                <label for="completed">Is Visit Completed?</label>
-                <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
-
-                <input type="submit" value="Submit">
-            </form> 
-    `
-    createVisitForm.innerHTML = html
-        let textField = document.getElementById('food-pantry-name')
-        textField.addEventListener('click', clearPlaceHolderOnClick)
-        document.querySelector("form").addEventListener('submit', createVisit)
-}
-
-class Visit{
-    constructor(food_pantry, date, completed){
-    this.food_pantry = food_pantry
-    this.date = date
-    this.completed = completed
-    }
-}
-
 function showVisit(){        //visit show page
     console.log(event.target.dataset.visitId)
     let id = event.target.dataset.visitId                           //refractor out
@@ -84,6 +62,28 @@ function showVisit(){        //visit show page
             <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
             </li>`)
     })
+}
+
+function createVisitForm(){        
+    let createVisitForm = document.getElementById('createVisitForm')
+    let html = `
+            <form>
+                <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
+                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+
+                <label for="date">Enter the date of your next trip:</label><br><br>
+                <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
+                
+                <label for="completed">Is Visit Completed?</label>
+                <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
+
+                <input type="submit" value="Submit">
+            </form> 
+    `
+    createVisitForm.innerHTML = html
+        let textField = document.getElementById('food-pantry-name')
+        textField.addEventListener('click', clearPlaceHolderOnClick)
+        document.querySelector("form").addEventListener('submit', createVisit)
 }
 
 function createVisit(){                 //create Visit Action                           //write class function here?
@@ -186,7 +186,6 @@ function updateVisit(){
 
 function deleteVisit(){        //visit delete action
     event.preventDefault();
-    event.preventDefault
     fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
         method: "DELETE",
         headers: {
