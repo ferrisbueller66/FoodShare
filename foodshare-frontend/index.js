@@ -1,4 +1,5 @@
 const BASE_URL = 'http://localhost:3000'
+//import { deleteVisit } from "./src/visit.js";
 
 window.addEventListener('load', () => {
     getVisits()
@@ -194,17 +195,18 @@ function updateVisit(){
     })
     .then(response => response.json())
     .then(visit => {
-        console.log(visit)
             document.querySelector(`li#visitLi-${visit.id}`).innerHTML =
-           //document.querySelector("#main").parentElement.
            `
    
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
             - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
             <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
             <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-
+                <ol id="items-ol">   
+                </ol>
            `
+           let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
+            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})</li>`)
             clickableLinks()
             //why do I need to add back in the eventListeners?
             clearForm()
@@ -226,5 +228,28 @@ function deleteVisit(){        //visit delete action
 
 
 function displayItems(){        //items index page
+    let main = document.querySelector('#main')
+    main.innerHTML = ""
 
+    fetch(BASE_URL+"/items")
+	.then(response => response.json())
+    .then(main.innerHTML += `<h2> Here's a List of Items to Donate</h2> <ol id="itemsOl"></ol>`)
+    .then(items => {
+        items.forEach(item => {
+            let li = `
+                <li id="itemLi-${item.id}">               
+                
+                <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a> 
+                    <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
+                    <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+                    <ul>
+                        <li> Quantity: ${item.quantity} </li>
+                        <li> Going to: ${item.visit.food_pantry}</li>
+                    </ul>
+                </li>
+            `
+            document.querySelector("#itemsOl").innerHTML += li
+        })
+        clickableLinks()
+    })
 }
