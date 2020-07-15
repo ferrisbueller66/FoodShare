@@ -187,8 +187,8 @@ function updateVisit(){
 function deleteVisit(){        //visit delete action
     clearForm()
     event.preventDefault();
-    let id = event.target.dataset.deleteId
-        fetch(BASE_URL+`/visits/${id}`, {
+    
+        fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

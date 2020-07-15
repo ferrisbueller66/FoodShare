@@ -37,29 +37,23 @@ function displayItems(){        //items index page
 
 function showItem(){        //visit show page
     console.log(event.target.dataset.itemId)
-    // let id = event.target.dataset.itemId                           //refractor out
-    // let main = document.querySelector('#main')
+    let id = event.target.dataset.itemId                           //refractor out
+    let main = document.querySelector('#main')
 
-    // fetch(BASE_URL+`/visits/${id}`)
-	// .then(response => response.json())
-	// .then(visit => {
-    //     main.innerHTML = `
-    //         <h2>Visit Location: ${visit.food_pantry}</h2>
-    //         <h3>Date Visited: ${visit.date}</h3>
-    //         <ol id="items-ol"><strong>Items to Deliver</strong>
-                
-    //         </ol>
-    //         <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
-    //     `
-
-    //     let ol = document.querySelector(`#items-ol`)
-    //     visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})
-    //         <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
-    //         <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
-    //         </li>
-    //     `)
-    //     clickableLinks()
-    // })
+    fetch(BASE_URL+`/items/${id}`)
+	.then(response => response.json())
+	.then(item => {
+        main.innerHTML = `
+            <h2>Item: ${item.name}</h2>
+            <h3>Quantity: ${item.quantity}</h3>
+            <h3>Deliver to: ${item.visit.food_pantry}</h3>
+            <h3>Delivery Status: ${item.visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit Item</a> 
+            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete Item</a>
+            <a href="#" class="visit-li" data-visit-id="${item.visit_id}">See ${item.visit.food_pantry}</a> 
+        `
+    })
+    clickableLinks()
 }
 
 // function createVisitForm(){        
