@@ -23,14 +23,14 @@ function getVisits(){
                      ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
                     <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
                     <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-                        <ol id="items-ol">
+                        <ol id="items-ol"> <strong>Items to Deliver</strong>
                         
                         </ol>
                 </li>
             `
             main.innerHTML += li
             let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
-            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})</li>`)
+            visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})</li>`)
             
         })
         clickableLinks()
@@ -141,7 +141,7 @@ function showVisit(){        //visit show page
         main.innerHTML = `
     <h2>Visit Location: ${visit.food_pantry}</h2>
     <h3>Date Visited: ${visit.date}</h3>
-    <ol id="items-ol">
+    <ol id="items-ol"><strong>Items to Deliver</strong>
         
     </ol>
     <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
