@@ -180,7 +180,6 @@ function updateVisit(){
            let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
             visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})</li>`)
             clickableLinks()
-            //why do I need to add back in the eventListeners?
             clearForm()
     })
 }

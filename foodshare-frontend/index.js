@@ -11,6 +11,10 @@ function clickableLinks(){
     visits.forEach(visit =>{
         visit.addEventListener('click', showVisit)
     })
+    let items = document.querySelectorAll('.item-li')
+    items.forEach(item =>{
+        item.addEventListener('click', showItem)
+    })
     document.getElementById('newVisit').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)

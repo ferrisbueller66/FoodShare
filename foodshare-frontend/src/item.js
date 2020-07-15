@@ -35,6 +35,33 @@ function displayItems(){        //items index page
     })
 }
 
+function showItem(){        //visit show page
+    console.log(event.target.dataset.itemId)
+    // let id = event.target.dataset.itemId                           //refractor out
+    // let main = document.querySelector('#main')
+
+    // fetch(BASE_URL+`/visits/${id}`)
+	// .then(response => response.json())
+	// .then(visit => {
+    //     main.innerHTML = `
+    //         <h2>Visit Location: ${visit.food_pantry}</h2>
+    //         <h3>Date Visited: ${visit.date}</h3>
+    //         <ol id="items-ol"><strong>Items to Deliver</strong>
+                
+    //         </ol>
+    //         <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+    //     `
+
+    //     let ol = document.querySelector(`#items-ol`)
+    //     visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})
+    //         <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
+    //         <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+    //         </li>
+    //     `)
+    //     clickableLinks()
+    // })
+}
+
 // function createVisitForm(){        
 //     let createVisitForm = document.getElementById('createVisitForm')
 //     let html = `

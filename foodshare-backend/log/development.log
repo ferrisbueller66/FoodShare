@@ -11686,3 +11686,177 @@ Processing by VisitsController#index as */*
 Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 2.1ms | Allocations: 12325)
 
 
+Started GET "/items" for ::1 at 2020-07-15 15:39:26 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (2.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (1.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (4.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (221.44ms)
+Completed 200 OK in 364ms (Views: 264.6ms | ActiveRecord: 10.4ms | Allocations: 27364)
+
+
+Started GET "/items" for ::1 at 2020-07-15 18:04:58 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (23.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (4.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (1.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (526.22ms)
+Completed 200 OK in 657ms (Views: 600.8ms | ActiveRecord: 32.8ms | Allocations: 27366)
+
+
+Started GET "/visits" for ::1 at 2020-07-15 18:08:08 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (3.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (136.05ms)
+Completed 200 OK in 144ms (Views: 138.5ms | ActiveRecord: 5.2ms | Allocations: 12359)
+
+
+Started GET "/visits" for ::1 at 2020-07-15 18:08:26 -0400
+Processing by VisitsController#index as */*
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 1]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 2]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 3]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 4]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 5]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."visit_id" = ?[0m  [["visit_id", 6]]
+[active_model_serializers]   ↳ app/controllers/visits_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (90.65ms)
+Completed 200 OK in 105ms (Views: 102.9ms | ActiveRecord: 2.2ms | Allocations: 12325)
+
+
+Started GET "/items" for ::1 at 2020-07-15 18:08:35 -0400
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (2.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (1.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Visit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/items_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (200.24ms)
+Completed 200 OK in 217ms (Views: 211.4ms | ActiveRecord: 5.7ms | Allocations: 27326)
+
+
