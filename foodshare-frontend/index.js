@@ -40,13 +40,13 @@ function getVisits(){
 function clickableLinks(){
     let visits = document.querySelectorAll('.visit-li')
     visits.forEach(visit =>{
-        visit.addEventListener('click', displayVisit)
+        visit.addEventListener('click', showVisit)
     })
     document.getElementById('newVisit').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)
     let visitLinks = document.querySelectorAll('#itemsOl li ul li a')
-    visitLinks.forEach(link => link.addEventListener('click', displayVisit))
+    visitLinks.forEach(link => link.addEventListener('click', showVisit))
      
     
     let edits = document.getElementsByClassName('edit-visit-link')
@@ -128,7 +128,7 @@ function clearForm(){
     createVisitForm.innerHTML = ""
 }
 
-function displayVisit(){        //visit show page
+function showVisit(){        //visit show page
     console.log(event.target.dataset.visitId)
     let id = event.target.dataset.visitId                           //refractor out
     let main = document.querySelector('#main')
@@ -141,8 +141,14 @@ function displayVisit(){        //visit show page
         main.innerHTML = `
     <h2>Visit Location: ${visit.food_pantry}</h2>
     <h3>Date Visited: ${visit.date}</h3>
-    <h3>Food Delivered? ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+    <ol id="items-ol">
+        
+    </ol>
+    <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
     `
+
+    let ol = document.querySelector(`#items-ol`)
+            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})</li>`)
     })
 }
 
@@ -228,7 +234,7 @@ function deleteVisit(){        //visit delete action
     })
         .then(event.target.parentElement.remove())
 }
-
+//--------------------------------------------------------------ITEMS FUNCTIONS-------------------------//
 
 function displayItems(){        //items index page
     let main = document.querySelector('#main')
