@@ -59,6 +59,33 @@ class Visit{
     }
 }
 
+function showVisit(){        //visit show page
+    console.log(event.target.dataset.visitId)
+    let id = event.target.dataset.visitId                           //refractor out
+    let main = document.querySelector('#main')
+
+    fetch(BASE_URL+`/visits/${id}`)
+	.then(response => response.json())
+	.then(visit => {
+        visit
+
+        main.innerHTML = `
+    <h2>Visit Location: ${visit.food_pantry}</h2>
+    <h3>Date Visited: ${visit.date}</h3>
+    <ol id="items-ol"><strong>Items to Deliver</strong>
+        
+    </ol>
+    <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+    `
+
+    let ol = document.querySelector(`#items-ol`)
+            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})
+            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
+            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+            </li>`)
+    })
+}
+
 function createVisit(){                 //create Visit Action                           //write class function here?
     event.preventDefault();
     let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
@@ -85,33 +112,6 @@ function createVisit(){                 //create Visit Action                   
             //why do I need to add back in the eventListeners?
             clearForm()
         })
-}
-
-function showVisit(){        //visit show page
-    console.log(event.target.dataset.visitId)
-    let id = event.target.dataset.visitId                           //refractor out
-    let main = document.querySelector('#main')
-
-    fetch(BASE_URL+`/visits/${id}`)
-	.then(response => response.json())
-	.then(visit => {
-        visit
-
-        main.innerHTML = `
-    <h2>Visit Location: ${visit.food_pantry}</h2>
-    <h3>Date Visited: ${visit.date}</h3>
-    <ol id="items-ol"><strong>Items to Deliver</strong>
-        
-    </ol>
-    <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
-    `
-
-    let ol = document.querySelector(`#items-ol`)
-            visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})
-            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
-            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
-            </li>`)
-    })
 }
 
 function editVisit(){        //visit edit action
@@ -196,5 +196,3 @@ function deleteVisit(){        //visit delete action
     })
         .then(event.target.parentElement.remove())
 }
-
-
