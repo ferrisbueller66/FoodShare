@@ -115,6 +115,7 @@ function createVisit(){                 //create Visit Action                   
 }
 
 function editVisit(){        //visit edit action
+    clearForm()
     event.preventDefault();
     let id = event.target.dataset.editId
     fetch(BASE_URL+`/visits/${id}`, {
@@ -185,6 +186,7 @@ function updateVisit(){
 }
 
 function deleteVisit(){        //visit delete action
+    clearForm()
     event.preventDefault();
     let id = event.target.dataset.deleteId
         fetch(BASE_URL+`/visits/${id}`, {
