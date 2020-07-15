@@ -7,6 +7,7 @@ class Item{
 }
 
 function displayItems(){        //items index page
+    clearForm()
     let main = document.querySelector('#main')
     main.innerHTML = ""
 

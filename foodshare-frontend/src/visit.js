@@ -7,7 +7,7 @@ class Visit{
 }
 
 function getVisits(){
-    //clearForm()
+    clearForm()
     let main = document.querySelector('#main')
     main.innerHTML = ""
 
