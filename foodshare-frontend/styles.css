@@ -1,3 +1,19 @@
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    font-size: .875rem;
+    color: #333;
+    font-weight: 400;
+    background-color: #f2f5f7;
+}
+
+div {
+    display: block;
+}
+
 #visits {
 
 }
@@ -44,4 +60,34 @@
 
 .delete-visit-link{
 
+}
+
+.app-wrapper{
+    
+    
+    
+text-align: center;
+    display: block;
+    box-sizing: border-box;
+    max-width: 495;
+    padding: 0;
+    margin: 0 auto!important;
+    position: relative;
+    
+    /*border: grey solid 4px;*/
+    max-height: 600;
+  
+  
+  
+}
+
+.header {
+    background-color: #ffcf00;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-top: 10px;
+   
 }
