@@ -130,7 +130,7 @@
     text-decoration: none;
 }
 
-.new-item-link{
+#new-item-link{
     color: #fff;
     background-color: #3B60E4;
     border: none;

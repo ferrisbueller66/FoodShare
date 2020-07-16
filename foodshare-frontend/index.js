@@ -21,9 +21,11 @@ function clickableLinks(){
     document.getElementById('visits2').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)
     document.getElementById('items2').addEventListener('click', displayItems)
+    document.getElementById('new-item-link').addEventListener('click', createItemForm)
+
+
     let visitLinks = document.querySelectorAll('#itemsOl li ul li a')
-    visitLinks.forEach(link => link.addEventListener('click', showVisit))
-     
+    visitLinks.forEach(link => link.addEventListener('click', showVisit)) 
     
     let editVisits = document.getElementsByClassName('edit-visit-link')
     for (const element of editVisits) {

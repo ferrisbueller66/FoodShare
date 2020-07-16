@@ -55,29 +55,31 @@ function showItem(){        //visit show page
     clickableLinks()
 }
 
-// function createVisitForm(){        
-//     let createVisitForm = document.getElementById('createVisitForm')
-//     let html = `
-//             <form>
-//                 <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
-//                 <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+function createItemForm(){      
+    let id = 'test'
+    let form = document.getElementById('createItemForm')
+    let html = `
+            <form>
+                <label for="name">Enter the Item You Plan to Donate:</label><br><br>
+                <input type="text" id="item-name" name="name" value="Type Item Here"><br><br>
 
-//                 <label for="date">Enter the date of your next trip:</label><br><br>
-//                 <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
+                <label for="date">Enter the Quantity for This Item:</label><br><br>
+                <input type="text" id="item-quantity" name="quantity" value="Type Quantity Here"><br><br>
                 
-//                 <label for="completed">Is Visit Completed?</label>
-//                 <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
+                <input type="hidden" id="item-visit_id" name="visit_id" value="${id}"><br><br>
 
-//                 <input type="submit" value="Submit">
-//             </form> 
-//     `
-//     createVisitForm.innerHTML = html
-//         let textField = document.getElementById('food-pantry-name')
-//         textField.addEventListener('click', clearPlaceHolderOnClick)
-//         document.querySelector("form").addEventListener('submit', createVisit)
-// }
+                <input type="submit" value="Submit">
+                <br>
+            </form> 
+    `
+    form.innerHTML = html
+        let nameField = document.getElementById('item-name').addEventListener('click', clearPlaceHolderOnClick)
+        let quantityField = document.getElementById('item-quantity')
+        quantityField.addEventListener('click', clearPlaceHolderOnClick)
+        document.querySelector("form").addEventListener('submit', createItem)
+}
 
-// function createVisit(){                 //create Visit Action                           //write class function here?
+// function createItem(){                 //create Visit Action                           //write class function here?
 //     event.preventDefault();
 //     let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
 
@@ -107,7 +109,7 @@ function showItem(){        //visit show page
 
 function editItem(){        //item edit action
     event.preventDefault();
-    console.log("edit click works")
+    console.log("edit click works, but function is not yet built out")
 // //     event.preventDefault();
 // //     let id = event.target.dataset.editId
 // //     fetch(BASE_URL+`/visits/${id}`, {
