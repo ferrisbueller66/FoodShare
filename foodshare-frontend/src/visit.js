@@ -118,7 +118,7 @@ function createVisit(){                 //create Visit Action                   
             else {
                 clearForm()
                 document.querySelector("#main").innerHTML += `
-                <h2 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
+                <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
                 `
                 setTimeout(tempWarning, 3000)
             }
@@ -182,7 +182,7 @@ function updateVisit(){
            `
    
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-            - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+            <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3>
             <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
             <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
                 <ol id="items-ol">   
