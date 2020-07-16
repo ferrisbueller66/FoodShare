@@ -18,7 +18,9 @@ function clickableLinks(){
     document.getElementById('newVisit').addEventListener('click', createVisitForm)
     document.getElementById('newVisit2').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', getVisits)  
+    document.getElementById('visits2').addEventListener('click', getVisits)  
     document.getElementById('items').addEventListener('click', displayItems)
+    document.getElementById('items2').addEventListener('click', displayItems)
     let visitLinks = document.querySelectorAll('#itemsOl li ul li a')
     visitLinks.forEach(link => link.addEventListener('click', showVisit))
      

@@ -27,6 +27,7 @@ function getVisits(){
                         
                         </ol>
                 </li>
+                
             `
             main.innerHTML += li
             let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
@@ -38,6 +39,7 @@ function getVisits(){
 }
 
 function showVisit(){        //visit show page
+    
     console.log(event.target.dataset.visitId)
     let id = event.target.dataset.visitId                           //refractor out
     let main = document.querySelector('#main')

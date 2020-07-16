@@ -12,8 +12,33 @@
     text-decoration: none;
 
 }
+#visits2 {
+    color: #fff;
+    background-color: #3B60E4;
+    border: none;
+    border-radius: 4px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 25px;
+    text-decoration: none;
+
+}
 
 #items {
+    color: #fff;
+    background-color: #3B60E4;
+    border: none;
+    border-radius: 4px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 25px;
+    text-decoration: none;
+
+}
+
+#items2 {
     color: #fff;
     background-color: #3B60E4;
     border: none;
@@ -224,4 +249,10 @@ input:active {
 
     background-color: #3B60E4;
    
+}
+
+.footer{
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
 }
