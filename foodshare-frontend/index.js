@@ -59,4 +59,7 @@ function clearForm(){
 }
 
 
-
+function tempWarning(){
+    let warning = document.getElementById("temp-warning")
+    warning.remove()
+}

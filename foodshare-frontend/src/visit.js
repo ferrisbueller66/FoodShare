@@ -70,8 +70,8 @@ function createVisitForm(){
     let createVisitForm = document.getElementById('createVisitForm')
     let html = `
             <form>
-                <label for="name">Enter the next Food Pantry you plan to donate:</label><br><br>
-                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Food Pantry Here"><br><br>
+                <label for="name"><strong>Enter the next Food Pantry you plan to donate:</strong></label><br><br>
+                <input type="text" id="food-pantry-name" name="food-pantry" value="Type Non-Profit Here"><br><br>
 
                 <label for="date">Enter the date of your next trip:</label><br><br>
                 <input type="date" id="food-pantry-date" name="date" min="2015-01-01" max="2118-12-31"><br><br>
@@ -102,17 +102,26 @@ function createVisit(){                 //create Visit Action                   
     })
         .then(response => response.json())
         .then(visit => {
-            document.querySelector("#main").innerHTML += `
-            <li>
-            ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-                <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-            </li>
-            `
-            clickableLinks()
-            //why do I need to add back in the eventListeners?
-            clearForm()
+            if (document.getElementsByClassName("visit-li").length >= 1){
+                document.querySelector("#main").innerHTML += `
+                <li>
+                ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+                    - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
+                    <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                    <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                </li>
+                `
+                clickableLinks()
+                //why do I need to add back in the eventListeners?
+                clearForm()
+            }
+            else {
+                clearForm()
+                document.querySelector("#main").innerHTML += `
+                <h2 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
+                `
+                setTimeout(tempWarning, 3000)
+            }
         })
 }
 
