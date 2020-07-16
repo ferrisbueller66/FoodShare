@@ -36,7 +36,6 @@ function displayItems(){        //items index page
 }
 
 function showItem(){        //visit show page
-    console.log(event.target.dataset.itemId)
     let id = event.target.dataset.itemId                           //refractor out
     let main = document.querySelector('#main')
 

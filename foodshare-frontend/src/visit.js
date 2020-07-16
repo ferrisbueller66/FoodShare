@@ -21,7 +21,7 @@ function getVisits(){
                 
                 ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                      ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
-                    <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                    <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
                     <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
                         <ol id="items-ol"> <strong>Items to Deliver</strong>
                         
@@ -77,7 +77,7 @@ function createVisitForm(){
                 <label for="completed">Is Visit Completed?</label>
                 <input type="checkbox" id="food-pantry-completed" name="completed" ><br><br>
 
-                <input type="submit" value="Submit">
+                <input class="button" type="submit" value="Submit">
             </form> 
     `
     createVisitForm.innerHTML = html
@@ -104,7 +104,7 @@ function createVisit(){                 //create Visit Action                   
             <li>
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
                 <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
             </li>
             `
@@ -116,7 +116,7 @@ function createVisit(){                 //create Visit Action                   
 
 function editVisit(){        //visit edit action
     clearForm()
-    event.preventDefault();
+    //event.preventDefault();
     let id = event.target.dataset.editId
     fetch(BASE_URL+`/visits/${id}`, {
         method: "GET",
@@ -141,7 +141,7 @@ function editVisit(){        //visit edit action
                     <label for="completed">Is Visit Completed?</label>
                     <input type="checkbox" id="food-pantry-completed" name="completed" ${visit.completed ? "checked" : ""}><br><br>
 
-                    <input type="submit" value="Submit">
+                    <input class="button" type="submit" value="Submit">
                 </form> 
             `
             createVisitForm.innerHTML = html
@@ -172,7 +172,7 @@ function updateVisit(){
    
             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
             - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+            <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
             <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
                 <ol id="items-ol">   
                 </ol>
