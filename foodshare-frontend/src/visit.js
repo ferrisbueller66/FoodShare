@@ -54,6 +54,8 @@ function showVisit(){        //visit show page
                 
             </ol>
             <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+            <a href="#" class='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
         `
 
         let ol = document.querySelector(`#items-ol`)
