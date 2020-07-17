@@ -56,14 +56,14 @@ function showItem(){        //visit show page
 }
 
 function createItemForm(){      
-    let id = 'test'
+    let id = event.target.dataset.visitId
     let form = document.getElementById('createItemForm')
     let html = `
             <form>
                 <label for="name">Enter the Item You Plan to Donate:</label><br><br>
                 <input type="text" id="item-name" name="name" value="Type Item Here"><br><br>
 
-                <label for="date">Enter the Quantity for This Item:</label><br><br>
+                <label for="quantity">Enter the Quantity for This Item:</label><br><br>
                 <input type="text" id="item-quantity" name="quantity" value="Type Quantity Here"><br><br>
                 
                 <input type="hidden" id="item-visit_id" name="visit_id" value="${id}"><br><br>
@@ -79,33 +79,34 @@ function createItemForm(){
         document.querySelector("form").addEventListener('submit', createItem)
 }
 
-// function createItem(){                 //create Visit Action                           //write class function here?
-//     event.preventDefault();
-//     let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
+function createItem(){                 //create Visit Action                           //write class function here?
+    event.preventDefault();
+    let num1 = parseInt(document.getElementById('item-quantity').value)
+    let num2 = parseInt(document.getElementById('item-visit_id').value)
+    let item = new Item(document.getElementById('item-name').value, num1, num2)
 
-//     fetch(BASE_URL+"/visits", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body: JSON.stringify(visit)
-//     })
-//         .then(response => response.json())
-//         .then(visit => {
-//             document.querySelector("#main").innerHTML += `
-//             <li>
-//             ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-//                 - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-//                 <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-//                 <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-//             </li>
-//             `
-//             clickableLinks()
-//             //why do I need to add back in the eventListeners?
-//             clearForm()
-//         })
-// }
+    fetch(BASE_URL+"/items", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(item)
+    })
+        .then(response => response.json())
+        .then(item => {
+            document.querySelector("#items-ol").innerHTML += `
+            <li>
+            <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
+            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
+            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+            </li>
+            `
+            clickableLinks()
+            //why do I need to add back in the eventListeners?
+            clearForm()
+        })
+}
 
 function editItem(){        //item edit action
     event.preventDefault();

@@ -55,12 +55,12 @@ function showVisit(){        //visit show page
             </ol>
             <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
             <div id="createItemForm"></div>
-            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit Visit</a> 
             <a href="#" id='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
         `
 
         let ol = document.querySelector(`#items-ol`)
-        visit.items.forEach(item => ol.innerHTML += `<li>${item.name} (${item.quantity})
+        visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
             <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
             <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
             </li>
