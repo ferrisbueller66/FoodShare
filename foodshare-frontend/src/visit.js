@@ -4,38 +4,40 @@ class Visit{
     this.date = date
     this.completed = completed
     }
-}
 
-function getVisits(){
-    clearForm()
-    let main = document.querySelector('#main')
-    main.innerHTML = ""
 
-    fetch(BASE_URL+"/visits")
-	.then(response => response.json())
-    .then(main.innerHTML += `<h2> Here's a List of your Visits</h2>`)
-    .then(visits => {
-        visits.forEach(visit => {
-            let li = `
-                <li id="visitLi-${visit.id}">               
+    static getVisits(){
+        clearForm()
+        let main = document.querySelector('#main')
+        main.innerHTML = ""
+
+        fetch(BASE_URL+"/visits")
+        .then(response => response.json())
+        .then(main.innerHTML += `<h2> Here's a List of your Visits</h2>`)
+        .then(visits => {
+            visits.forEach(visit => {
+                let li = `
+                    <li id="visitLi-${visit.id}">               
+                    
+                    ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+                        ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
+                        <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                        <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                            <ol id="items-ol"> <strong>Items to Deliver</strong>
+                            
+                            </ol>
+                    </li>
+                    
+                `
+                main.innerHTML += li
+                let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
+                visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})</li>`)
                 
-                ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                     ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
-                    <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-                    <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-                        <ol id="items-ol"> <strong>Items to Deliver</strong>
-                        
-                        </ol>
-                </li>
-                
-            `
-            main.innerHTML += li
-            let ol = document.querySelector(`li#visitLi-${visit.id} #items-ol`)
-            visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})</li>`)
-            
+            })
+            clickableLinks()
         })
-        clickableLinks()
-    })
+    }
+
 }
 
 function showVisit(){        //visit show page
@@ -56,7 +58,7 @@ function showVisit(){        //visit show page
             <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
             <div id="createItemForm"></div>
             <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit Visit</a> 
-            <a href="#" id='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
+            <a href="#" class='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
         `
 
         let ol = document.querySelector(`#items-ol`)
@@ -199,6 +201,7 @@ function updateVisit(){
 }
 
 function deleteVisit(){        //visit delete action
+    console.log("I clicked delete")
     clearForm()
     event.preventDefault();
     

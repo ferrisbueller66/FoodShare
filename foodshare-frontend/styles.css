@@ -8,6 +8,7 @@
     height: 25px;
     padding-left: 5px;
     padding-right: 5px;
+    
     min-width: 25px;
     text-decoration: none;
 
@@ -63,6 +64,7 @@
     height: 25px;
     padding-left: 5px;
     padding-right: 5px;
+    
     min-width: 25px;
     text-decoration: none;
 }
@@ -130,7 +132,7 @@
     text-decoration: none;
 }
 
-#new-item-link{
+.new-item-link{
     color: #fff;
     background-color: #3B60E4;
     border: none;
