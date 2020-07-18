@@ -17,8 +17,8 @@ function clickableLinks(){
     document.getElementById('newVisit2').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', Visit.getVisits)  
     document.getElementById('visits2').addEventListener('click', Visit.getVisits)  
-    document.getElementById('items').addEventListener('click', displayItems)
-    document.getElementById('items2').addEventListener('click', displayItems)
+    document.getElementById('items').addEventListener('click', Item.displayItems)
+    document.getElementById('items2').addEventListener('click', Item.displayItems)
     let newItems = document.querySelectorAll('.new-item-link')
          newItems.forEach(item => item.addEventListener('click', createItemForm))
 
