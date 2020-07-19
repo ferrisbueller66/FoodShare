@@ -35,6 +35,19 @@ class Item{
             clickableLinks()
         })
     }
+
+    // function deleteItem(){        
+    //     event.preventDefault();
+    //     fetch(BASE_URL+`/items/${this.dataset.deleteItemId}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         }
+    //     })
+    //         .then(this.parentElement.remove())
+    // }
+    
 }
 
 function showItem(){        //visit show page
@@ -102,7 +115,7 @@ function createItem(){                 //create Visit Action
             </li>
             `
             clickableLinks()
-            //why do I need to add back in the eventListeners?
+           
             clearItemForm()
         })
 }
