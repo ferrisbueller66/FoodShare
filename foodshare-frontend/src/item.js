@@ -83,9 +83,7 @@ function createItemForm(){
 
 function createItem(){                 //create Visit Action                      
     event.preventDefault();
-    let num1 = parseInt(document.getElementById('item-quantity').value)
-    let num2 = parseInt(document.getElementById('item-visit_id').value)
-    let item = new Item(document.getElementById('item-name').value, num1, num2)
+    let item = new Item(document.getElementById('item-name').value, parseInt(document.getElementById('item-quantity').value), parseInt(document.getElementById('item-visit_id').value))
 
     fetch(BASE_URL+"/items", {
         method: "POST",
