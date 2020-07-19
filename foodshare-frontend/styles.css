@@ -132,6 +132,18 @@
     text-decoration: none;
 }
 
+.delete-item-link{
+    color: #fff;
+    background-color: #611C35;
+    border: none;
+    border-radius: 4px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 25px;
+    text-decoration: none;
+}
+
 .new-item-link{
     color: #fff;
     background-color: #3B60E4;
