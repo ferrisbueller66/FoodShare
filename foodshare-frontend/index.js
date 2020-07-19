@@ -1,5 +1,4 @@
 const BASE_URL = 'http://localhost:3000'
-//import { deleteVisit } from "./src/visit.js";
 
 window.addEventListener('load', () => {
     Visit.getVisits()
