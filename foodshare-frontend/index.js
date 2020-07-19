@@ -13,7 +13,6 @@ function clickableLinks(){
         item.addEventListener('click', showItem)
     })
     document.getElementById('newVisit').addEventListener('click', createVisitForm)
-    document.getElementById('newVisit2').addEventListener('click', createVisitForm)
     document.getElementById('visits').addEventListener('click', Visit.getVisits)  
     document.getElementById('visits2').addEventListener('click', Visit.getVisits)  
     document.getElementById('items').addEventListener('click', Item.displayItems)

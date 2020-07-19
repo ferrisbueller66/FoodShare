@@ -80,7 +80,7 @@ function createItemForm(){
         document.querySelector("form").addEventListener('submit', createItem)
 }
 
-function createItem(){                 //create Visit Action                           //write class function here?
+function createItem(){                 //create Visit Action                      
     event.preventDefault();
     let num1 = parseInt(document.getElementById('item-quantity').value)
     let num2 = parseInt(document.getElementById('item-visit_id').value)

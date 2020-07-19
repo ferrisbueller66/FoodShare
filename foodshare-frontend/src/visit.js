@@ -107,26 +107,30 @@ function createVisit(){                 //create Visit Action                   
     })
         .then(response => response.json())
         .then(visit => {
-            if (document.getElementsByClassName("visit-li").length >= 1){
+            // if (document.getElementsByClassName("visit-li").length >= 1){
                 document.querySelector("#main").innerHTML += `
-                <li>
-                ${visit.date}: <a href="#" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
-                    - ${visit.completed ? "Delivered" : "Not Yet Delivered"}
-                    <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
-                    <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
-                </li>
+                <li id="visitLi-${visit.id}">               
+                    
+                    ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
+                        ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
+                        <a href="#createVisitForm" class='edit-visit-link' data-edit-id="${visit.id}">  Edit</a> 
+                        <a href="#" class='delete-visit-link' data-delete-id="${visit.id}">  Delete</a> 
+                            <ol id="items-ol"> <strong>Items to Deliver</strong>
+                            
+                            </ol>
+                    </li>
                 `
                 clickableLinks()
                 //why do I need to add back in the eventListeners?
                 clearForm()
-            }
-            else {
-                clearForm()
-                document.querySelector("#main").innerHTML += `
-                <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
-                `
-                setTimeout(tempWarning, 3000)
-            }
+            // }
+            // if (document.getElementsByClassName("visit-li").length < 1){
+            //     clearForm()
+            //     document.querySelector("#main").innerHTML += `
+            //     <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
+            //     `
+            //     setTimeout(tempWarning, 3000)
+            // }
         })
 }
 
@@ -207,7 +211,7 @@ function deleteVisit(){        //visit delete action
     clearForm()
     event.preventDefault();
     
-        fetch(BASE_URL+`/visits/${event.target.dataset.deleteId}`, {
+        fetch(BASE_URL+`/visits/${this.dataset.deleteId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
