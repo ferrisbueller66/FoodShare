@@ -107,7 +107,7 @@ function createVisit(){                 //create Visit Action                   
     })
         .then(response => response.json())
         .then(visit => {
-            // if (document.getElementsByClassName("visit-li").length >= 1){
+             if (document.getElementsByClassName("visit-li").length >= 1){
                 document.querySelector("#main").innerHTML += `
                 <li id="visitLi-${visit.id}">               
                     
@@ -123,14 +123,14 @@ function createVisit(){                 //create Visit Action                   
                 clickableLinks()
                 //why do I need to add back in the eventListeners?
                 clearForm()
-            // }
-            // if (document.getElementsByClassName("visit-li").length < 1){
-            //     clearForm()
-            //     document.querySelector("#main").innerHTML += `
-            //     <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
-            //     `
-            //     setTimeout(tempWarning, 3000)
-            // }
+            }
+            else {
+                clearForm()
+                document.querySelector("#main").innerHTML += `
+                <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
+                `
+                setTimeout(tempWarning, 3000)
+            }
         })
 }
 
@@ -176,7 +176,6 @@ function updateVisit(){
     let id = event.target.dataset.id
     let visit = new Visit(document.getElementById('food-pantry-name').value, document.getElementById('food-pantry-date').value, document.getElementById('food-pantry-completed').checked)
 
-
     fetch(BASE_URL+`/visits/${id}`, {
         method: "PATCH",
         headers: {
@@ -205,17 +204,14 @@ function updateVisit(){
 }
 
 
-/*------------------------------*/
 function deleteVisit(){        //visit delete action
-    console.log("I clicked delete")
     clearForm()
     event.preventDefault();
-    
         fetch(BASE_URL+`/visits/${this.dataset.deleteId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             }
-        }).then(event.target.parentElement.remove())
+        }).then(this.parentElement.remove())
 }

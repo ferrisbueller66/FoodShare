@@ -8,6 +8,7 @@ class Item{
 
     static displayItems(){        //items index page
         clearForm()
+        clearItemForm()
         let main = document.querySelector('#main')
         main.innerHTML = ""
 
@@ -117,6 +118,6 @@ function deleteItem(){        //item delete action
             "Accept": "application/json"
         }
     })
-        .then(event.target.parentElement.remove())
+        .then(this.parentElement.remove())
 }
 
