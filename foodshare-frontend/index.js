@@ -60,6 +60,12 @@ function clearForm(){
 }
 
 
+function clearItemForm(){
+    let createItemForm = document.getElementById('createItemForm')
+    createItemForm.innerHTML = ""
+}
+
+
 function tempWarning(){
     let warning = document.getElementById("temp-warning")
     warning.remove()

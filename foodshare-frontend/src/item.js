@@ -98,14 +98,13 @@ function createItem(){                 //create Visit Action                    
         .then(item => {
             document.querySelector("#items-ol").innerHTML += `
             <li>
-            <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
-            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 
+            <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity}) 
             <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
             </li>
             `
             clickableLinks()
             //why do I need to add back in the eventListeners?
-            clearForm()
+            clearItemForm()
         })
 }
 
