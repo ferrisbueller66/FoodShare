@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:show, :destroy]
 
   # GET /items
   def index
@@ -19,15 +19,6 @@ class ItemsController < ApplicationController
 
     if @item.save
       render json: @item, status: :created, location: @item
-    else
-      render json: @item.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /items/1
-  def update
-    if @item.update(item_params)
-      render json: @item
     else
       render json: @item.errors, status: :unprocessable_entity
     end
