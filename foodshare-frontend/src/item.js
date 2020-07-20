@@ -1,8 +1,9 @@
 class Item{
-    constructor(name, quantity, visit_id){
+    constructor(name, quantity, visit_id, visit){
     this.name = name
     this.quantity = quantity
     this.visit_id = visit_id
+    this.visit = visit
     }
 
 
@@ -34,40 +35,35 @@ class Item{
             
             clickableLinks()
         })
+
+        
     }
 
-    // function deleteItem(){        
-    //     event.preventDefault();
-    //     fetch(BASE_URL+`/items/${this.dataset.deleteItemId}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         }
-    //     })
-    //         .then(this.parentElement.remove())
-    // }
+    renderItem(){
+        main.innerHTML = `
+        <div id="item-show-page">
+            <h2>Item: ${this.name}</h2>
+            <h3>Quantity: ${this.quantity}</h3>
+            <h3>Deliver to: ${this.visit.food_pantry}</h3>
+            <h3>Delivery Status: ${this.visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+            <a href="#" class='delete-item-link' data-delete-item-id="${this.id}">  Delete Item</a>
+            <a href="#" class="visit-li" data-visit-id="${this.visit.id}">See ${this.visit.food_pantry}</a>
+        </div>
+        `
+        clickableLinks()
+    }
     
 }
 
 function showItem(){        //visit show page
-    let id = event.target.dataset.itemId                           //refractor out
     let main = document.querySelector('#main')
 
-    fetch(BASE_URL+`/items/${id}`)
+    fetch(BASE_URL+`/items/${this.dataset.itemId}`)
 	.then(response => response.json())
 	.then(item => {
-        main.innerHTML = `
-        <div id="item-show-page">
-            <h2>Item: ${item.name}</h2>
-            <h3>Quantity: ${item.quantity}</h3>
-            <h3>Deliver to: ${item.visit.food_pantry}</h3>
-            <h3>Delivery Status: ${item.visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
-            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete Item</a>
-            <a href="#" class="visit-li" data-visit-id="${item.visit.id}">See ${item.visit.food_pantry}</a>
-        </div>
-        `
-        clickableLinks()
+        let itemObject = new Item(item.name, item.quantity, item.visit_id, item.visit)
+        itemObject.renderItem()
+        
     })
     
 }
