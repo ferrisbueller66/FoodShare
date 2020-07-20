@@ -52,6 +52,18 @@ class Item{
         `
         clickableLinks()
     }
+
+    renderNewItem(){
+        document.querySelector("#items-ol").innerHTML += `
+            <li>
+            <a href="#" class="item-li" data-item-id="${this.id}">${this.name}</a>  (${this.quantity}) 
+            <a href="#" class='delete-item-link' data-delete-item-id="${this.id}">  Delete</a>
+            </li>
+            `
+            clickableLinks()
+           
+            clearItemForm()
+    }
     
 }
 
@@ -106,21 +118,14 @@ function createItem(){                 //create Visit Action
     })
         .then(response => response.json())
         .then(item => {
-            document.querySelector("#items-ol").innerHTML += `
-            <li>
-            <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity}) 
-            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
-            </li>
-            `
-            clickableLinks()
-           
-            clearItemForm()
+            let itemObject = new Item(item.name, item.quantity, item.visit_id, item.visit)
+        itemObject.renderNewItem()
         })
 }
 
 function deleteItem(){        //item delete action
     event.preventDefault();
-    fetch(BASE_URL+`/items/${this.dataset.deleteItemId}`, {
+    fetch(BASE_URL+`/items/${parseInt(this.dataset.deleteItemId)}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
