@@ -1,9 +1,10 @@
 class Visit{
-    constructor(food_pantry, date, completed, id){
+    constructor(food_pantry, date, completed, id, items){
     this.food_pantry = food_pantry
     this.date = date
     this.completed = completed
     this.id = id
+    this.items = items
     }
 
 
@@ -39,6 +40,28 @@ class Visit{
         })
     }
 
+    renderVisit(){
+        main.innerHTML = `
+            <h2>Visit Location: ${this.food_pantry}</h2>
+            <h3>Date Visited: ${this.date}</h3>
+            <ol id="items-ol"><strong>Items to Deliver</strong>
+                
+            </ol>
+            <h3>Delivery Status: ${this.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+            <div id="createItemForm"></div>
+            <a href="#" class='edit-visit-link' data-edit-id="${this.id}">  Edit Visit</a> 
+            <a href="#" class='new-item-link' data-visit-id="${this.id}">  Add Item</a>
+        `
+
+        let ol = document.querySelector(`#items-ol`)
+        this.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
+            
+            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+            </li>
+        `)
+        clickableLinks()
+    }
+
 }
 
 function showVisit(){        //visit show page
@@ -50,25 +73,8 @@ function showVisit(){        //visit show page
     fetch(BASE_URL+`/visits/${id}`)
 	.then(response => response.json())
 	.then(visit => {
-        main.innerHTML = `
-            <h2>Visit Location: ${visit.food_pantry}</h2>
-            <h3>Date Visited: ${visit.date}</h3>
-            <ol id="items-ol"><strong>Items to Deliver</strong>
-                
-            </ol>
-            <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
-            <div id="createItemForm"></div>
-            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit Visit</a> 
-            <a href="#" class='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
-        `
-
-        let ol = document.querySelector(`#items-ol`)
-        visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
-            
-            <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
-            </li>
-        `)
-        clickableLinks()
+        let visitObject = new Visit(visit.food_pantry, visit.date, visit.completed, visit.id, visit.items)
+       visitObject.renderVisit()
     })
 }
 
