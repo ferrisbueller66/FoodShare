@@ -1,8 +1,9 @@
 class Visit{
-    constructor(food_pantry, date, completed){
+    constructor(food_pantry, date, completed, id){
     this.food_pantry = food_pantry
     this.date = date
     this.completed = completed
+    this.id = id
     }
 
 
@@ -107,6 +108,7 @@ function createVisit(){                 //create Visit Action                   
     })
         .then(response => response.json())
         .then(visit => {
+            let visitObject = new Visit(visit.food_pantry, visit.date, visit.completed, visit.id)
              if (document.getElementsByClassName("visit-li").length >= 1){
                 document.querySelector("#main").innerHTML += `
                 <li id="visitLi-${visit.id}">               
@@ -186,6 +188,7 @@ function updateVisit(){
     })
     .then(response => response.json())
     .then(visit => {
+        let itemShowPage = document.querySelector('#item-show-page')
         if (document.getElementsByClassName("visit-li").length >= 1){
             document.querySelector("#main").innerHTML += `
             <li id="visitLi-${visit.id}">               
@@ -203,12 +206,40 @@ function updateVisit(){
             //why do I need to add back in the eventListeners?
             clearForm()
         }
-        else {
-            clearForm()
+
+        else if (itemShowPage != null){
             document.querySelector("#main").innerHTML += `
-            <h3 id="temp-warning"> Successfully Created. Please Click to "Visits" to see your new visit"</h2>
+            <h3 id="temp-warning"> Your Visit has been Successfully Edited</h2>
             `
             setTimeout(tempWarning, 3000)
+            clickableLinks()
+        }
+
+        else {
+            clearForm()
+            main.innerHTML = `
+            <h2>Visit Location: ${visit.food_pantry}</h2>
+            <h3>Date Visited: ${visit.date}</h3>
+            <ol id="items-ol"><strong>Items to Deliver</strong>
+                
+            </ol>
+            <h3>Delivery Status: ${visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
+            <div id="createItemForm"></div>
+            <a href="#" class='edit-visit-link' data-edit-id="${visit.id}">  Edit Visit</a> 
+            <a href="#" class='new-item-link' data-visit-id="${visit.id}">  Add Item</a>
+            `
+
+            let ol = document.querySelector(`#items-ol`)
+            visit.items.forEach(item => ol.innerHTML += `<li><a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a>  (${item.quantity})
+                <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete</a>
+                </li>
+            `)
+
+            document.querySelector("#main").innerHTML += `
+            <h3 id="temp-warning"> Your Visit has been Successfully Edited</h2>
+            `
+            setTimeout(tempWarning, 3000)
+            clickableLinks()
         }
     })
 }

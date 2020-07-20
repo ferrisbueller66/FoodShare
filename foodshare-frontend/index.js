@@ -34,10 +34,6 @@ function clickableLinks(){
         element.addEventListener('click', deleteVisit)                           
     }
 
-    let editItems = document.getElementsByClassName('edit-item-link')
-    for (const element of editItems) {
-        element.addEventListener('click', editItem)                            //define this functions
-    }
       
     let deleteItems = document.getElementsByClassName('delete-item-link')
     for (const element of deleteItems) {
@@ -59,8 +55,8 @@ function clearForm(){
 
 
 function clearItemForm(){
-    let createItemForm = document.getElementById('createItemForm')
-    createItemForm.innerHTML = ""
+    let form = document.getElementById('createItemForm')
+    form.innerHTML = ""
 }
 
 

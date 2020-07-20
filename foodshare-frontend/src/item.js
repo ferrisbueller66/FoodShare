@@ -8,7 +8,7 @@ class Item{
 
     static displayItems(){        //items index page
         clearForm()
-        clearItemForm()
+        createItemForm
         let main = document.querySelector('#main')
         main.innerHTML = ""
 
@@ -58,16 +58,18 @@ function showItem(){        //visit show page
 	.then(response => response.json())
 	.then(item => {
         main.innerHTML = `
+        <div id="item-show-page">
             <h2>Item: ${item.name}</h2>
             <h3>Quantity: ${item.quantity}</h3>
             <h3>Deliver to: ${item.visit.food_pantry}</h3>
             <h3>Delivery Status: ${item.visit.completed ? "Delivered" : "Not Yet Delivered"} </h3> 
-            <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit Item</a> 
             <a href="#" class='delete-item-link' data-delete-item-id="${item.id}">  Delete Item</a>
-            <a href="#" class="visit-li" data-visit-id="${item.visit_id}">See ${item.visit.food_pantry}</a> 
+            <a href="#" class="visit-li" data-visit-id="${item.visit.id}">See ${item.visit.food_pantry}</a>
+        </div>
         `
+        clickableLinks()
     })
-    clickableLinks()
+    
 }
 
 function createItemForm(){      
