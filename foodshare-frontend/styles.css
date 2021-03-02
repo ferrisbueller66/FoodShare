@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 
 #visits {
     color: #fff;
@@ -171,34 +173,12 @@ body {
     
 }
 
-.data-section {
-    /*position: relative;*/
-    max-width: 495;
-    align-self: center;
-    box-sizing: border-box;
-    display: inline-grid;
-    border: grey solid 4px;
-}
-.app-wrapper{
-
-    display: block;
-    box-sizing: border-box;
-    max-width: 495;
-    padding: 0;
-    margin: auto;
-    position: relative;
-    background-color: #f2f5f7;
-}
-
-.header {
-    text-align: center;
+header {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 0.5rem;
     background-color: #FFA630;
-    box-sizing: border-box;
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .layout-container{
