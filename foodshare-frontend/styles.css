@@ -11,7 +11,7 @@ html {
 
 body {
     font-size: .875rem;
-    color: #333;
+    color: #2a2d34;
     font-weight: 400;
 }
 
@@ -20,12 +20,11 @@ header {
     padding: 0.5rem;
     background-color: #A0DDE6;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 footer{
     text-align: center;
-    background-color: #80c2af;
+    background-color: #A0DDE6;
     padding: 0.5rem;
 }
   
@@ -60,7 +59,7 @@ footer{
     background-color: #ccc;
     border-color: #ccc;
     box-shadow: none;
-    color: #3f3f3f;
+    color: #2a2d34;
     cursor: not-allowed;
   }
 
@@ -68,11 +67,25 @@ footer{
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
 
+.layout-container{
+    padding: 20px;
+    background-color: #80c2af;
+}
+
   /*------------------Card Styling------------------------*/
 
 
 #main{
+    
+}
 
+.card{
+        text-align: center;
+        padding: 0.5rem;
+        margin: 1rem auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        border-radius: 12px;
+        background-color: #A0DDE6;
 }
 
 #newVisit{
@@ -174,10 +187,6 @@ footer{
     padding-right: 5px;
     min-width: 25px;
     text-decoration: none;
-}
-
-.layout-container{
-    padding: 20px;
 }
 
 h2 {
