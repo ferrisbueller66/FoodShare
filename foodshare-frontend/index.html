@@ -3,51 +3,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>FoodShare</title>
   <meta name="description" content="Food Pantry Donation Tracker">
   <meta name="author" content="Trevor Tarpinian">
-
   <link rel="stylesheet" href="styles.css?v=1.0">
-
 </head>
 
 <body>
   <script src="index.js" ></script>
   <script src="src/visit.js" ></script>
   <script src="src/item.js" ></script>
-  <div class="data-section">
-    <div class="app-wrapper">
-      <div class="header">
-                            
-        <h1>FoodShare</h1>
-        
-      
 
-        <a id="visits" href="#">Visits</a>
-        <a id="items" href="#">Items</a>
-      </div>
-      <div class="layout-container">
-        <div>
-
-        
-          <div id="main">
-            <ul></ul>
-            
-          </div>
-            <br> 
-            <a id="newVisit" href="#createVisitForm">Create Next Visit</a>
-            <div id=createVisitForm>
-            </div>
-            <hr>
-            <div class="footer">
-              <a id="visits2" href="#">Visits</a>
-              <a id="items2" href="#">Items</a>
-             
-            </div>
+  <header>                 
+    <h1>FoodShare</h1>
+    <a id="visits" class="navlink" href="#">Visits</a>
+    <a id="items" class="navlink" href="#">Items</a>
+  </header>
+  <div class="layout-container">
+    <section class="main">
+      <div>
+        <div id="main">
+          <ul></ul>
         </div>
+        <br> 
+        <a id="newVisit" href="#createVisitForm">Create Next Visit</a>
+        <div id=createVisitForm></div>
       </div>
-    </div>
+    </section>
   </div>
+  <footer>
+    <a id="visits2" class="navlink" href="#">Visits</a>
+    <a id="items2" class="navlink" href="#">Items</a>
+  </footer>
 </body>
 </html>
