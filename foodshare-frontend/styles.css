@@ -1,59 +1,91 @@
-
-
-#visits {
-    color: #fff;
-    background-color: #3B60E4;
-    border: none;
-    border-radius: 4px;
-    height: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-    
-    min-width: 25px;
-    text-decoration: none;
-
-}
-#visits2 {
-    color: #fff;
-    background-color: #3B60E4;
-    border: none;
-    border-radius: 4px;
-    height: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 25px;
-    text-decoration: none;
-
+/*------------------Global Styles------------------------*/
+* {
+    box-sizing: border-box;
 }
 
-#items {
-    color: #fff;
-    background-color: #3B60E4;
-    border: none;
-    border-radius: 4px;
-    height: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 25px;
-    text-decoration: none;
-
+html {
+    width: 100vw;
+    height: 100vh;
+/* } Do I need this? */
 }
 
-#items2 {
+body {
+    font-size: .875rem;
+    color: #2a2d34;
+    font-weight: 400;
+}
+
+header {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 0.5rem;
+    background-color: #A0DDE6;
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    background-color: #A0DDE6;
+    padding: 0.5rem;
+}
+  
+.navlink {
+    font: inherit;
     color: #fff;
     background-color: #3B60E4;
-    border: none;
+    border: 1px solid #3B60E4;
     border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+    text-decoration: none;
+
     height: 25px;
     padding-left: 5px;
     padding-right: 5px;
     min-width: 25px;
-    text-decoration: none;
-
 }
+
+.navlink:focus {
+    outline: none;
+  }
+  
+  .navlink:hover,
+  .navlink:active {
+    background-color: #fb3640;
+    border-color: #fb3640;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .navlink:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    box-shadow: none;
+    color: #2a2d34;
+    cursor: not-allowed;
+  }
+
+  h1 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+.layout-container{
+    padding: 20px;
+    background-color: #80c2af;
+}
+
+  /*------------------Card Styling------------------------*/
+
 
 #main{
+    
+}
 
+.card{
+        text-align: center;
+        padding: 0.5rem;
+        margin: 1rem auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        border-radius: 12px;
+        background-color: #A0DDE6;
 }
 
 #newVisit{
@@ -157,54 +189,6 @@
     text-decoration: none;
 }
 
-
-/*------------------Card Styling------------------------*/
-html {
-    width: 100vw;
-    height: 100vh;
-}
-
-body {
-    font-size: .875rem;
-    color: #333;
-    font-weight: 400;
-    
-}
-
-.data-section {
-    /*position: relative;*/
-    max-width: 495;
-    align-self: center;
-    box-sizing: border-box;
-    display: inline-grid;
-    border: grey solid 4px;
-}
-.app-wrapper{
-
-    display: block;
-    box-sizing: border-box;
-    max-width: 495;
-    padding: 0;
-    margin: auto;
-    position: relative;
-    background-color: #f2f5f7;
-}
-
-.header {
-    text-align: center;
-    background-color: #FFA630;
-    box-sizing: border-box;
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    padding-top: 10px;
-}
-
-.layout-container{
-    padding: 20px;
-}
-
 h2 {
     text-align: center;
     font-size: 1.375rem;
@@ -255,9 +239,9 @@ input {
     min-width: 25px;
 }
 
-a:hover {
-    background-color: #4DA1A9;
-}
+/* a:hover {
+    background-color: #4DA1A9; */
+/* } This needs to be moved to a class */
 
 input:hover {
 
@@ -281,8 +265,3 @@ input:active {
    
 }
 
-.footer{
-    text-align: center;
-    box-sizing: border-box;
-    display: block;
-}

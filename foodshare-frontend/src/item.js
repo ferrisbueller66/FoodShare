@@ -19,7 +19,7 @@ class Item{
         .then(items => {
             items.forEach(item => {
                 let li = `
-                    <li id="itemLi-${item.id}">               
+                    <li id="itemLi-${item.id}" class="card">               
                     
                     <a href="#" class="item-li" data-item-id="${item.id}">${item.name}</a> 
                         <a href="#" class='edit-item-link' data-edit-item-id="${item.id}">  Edit</a> 

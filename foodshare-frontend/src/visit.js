@@ -19,7 +19,7 @@ class Visit{
         .then(visits => {
             visits.forEach(visit => {
                 let li = `
-                    <li id="visitLi-${visit.id}">               
+                    <li id="visitLi-${visit.id}" class="card">               
                     
                     ${visit.date}: <a href="#" class="visit-li" data-visit-id="${visit.id}">${visit.food_pantry}</a> 
                         ${visit.completed ? "(Delivery Status: Delivered)" : "(Delivery Status: Not Yet Delivered)"}
